@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ninja Studio- Music Player</title>
+        <!--responsive meta tag-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--stylesheets-->
+        <link rel="stylesheet" type="text/css" href="styleindex.css">
+        <!--responsive stylesheet with media queries-->
+        <link rel="stylesheet" type="text/css" href="resp-sheet-for-home-page.css">
+
+<!--FAVICON-->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+<!--ICONS- FROM ICONS8.COM-->
+<!--I used the icons from this site instead of fontawesome because I wanted to use some customized icons which I couldn't find on fontawesome.com-->
+<a href="https://icons8.com/icon/52996/playlist"></a>
+<a href="https://icons8.com/icon/XU3XKgdpT0qG/search"></a>
+<a href="https://icons8.com/icon/3422/microphone"></a>
+<a href="https://icons8.com/icon/3334/notification"></a>
+<a href="https://icons8.com/icon/2760/expand-arrow"></a>
+<a href="https://icons8.com/icon/84881/heart"></a>
+<a href="https://icons8.com/icon/397/play"></a>
+<a href="https://icons8.com/icon/61012/pause"></a>
+<a href="https://icons8.com/icon/u8MTpAq972MG/facebook-like"></a>
+<a href="https://icons8.com/icon/16074/more"></a>
+<a href="https://icons8.com/icon/85686/radio-waves"></a>
+<a href="https://icons8.com/icon/3220/plus"></a>
+<a href="https://icons8.com/icon/BNrzpEbgKv51/forward-arrow"></a>
+<a href="https://icons8.com/icon/44112/play-button"></a>
+<a href="https://icons8.com/icon/rO5ATRDGnabW/circled-play"></a>
+<a href="https://icons8.com/icon/36268/pause-button"></a>
+
+<!--FONT-AWESOME ICON SCRIPT- FOR SONG PLAYER BCOZ IT REQUIRES STYLING THE ICON ON HOVER-->
+<script src="https://kit.fontawesome.com/261ac6d0f6.js" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/7bf505a696.js"></script>
+
+</head>
+
+    <body>
+    <!--NAVBAR-->
+        <div id="nav">
+            <!--music player logo-->
+            <img src="https://img.icons8.com/nolan/50/playlist.png" class="music-player-icon"/>
+            <!--music player logo-text-->
+            <a href="#homepg-carousel-div"><div class="ninja-studio">Ninja<br><b>Studio</b></div></a>
+
+            <div id="nav-links-div">
+                <!--INTERNAL LINKS in NAV SECTION-->
+            <a href="#popular-artists-heading">Favourites</a>
+            <a href="#latest-eng-hindi-heading">Recently Played</a>
+            <a href="#mood-radio-div">Genres & Moods</a>
+            </div>
+        <!--SEARCH-BAR-->
+            <div id="search-bar-div">
+                <div class="search-bar-placeholder"><img class="search-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABdklEQVRIie3Uu24UQRCF4a9s75JYGIIVCYIAEiZEMlgW0iYE5IiAiBeDFyAjWwMxAgwvYMlcZGRi4wBhLkXQY2m19sw2KzI4aU2dv/pMd/FfcxRdhcwc4DoajDDEId7hbUTsLwzIzIu4hzXsYw8/cA5XcAbb2IqIn32AlQ7zB/iCRxGxN1MfYoxNrOJxH2BppnnQTn6Ah7PmEBFHEfEMEzSZuV4NUDI/iycR8bWvMSJeYRfjzJz16QQ0+Hza5B16rcR0uRYwUn5orY6/HdUChvj+B4Cjqb4qwKFyFWt1fqqvCvAeV9urWKMGiQ+1gDfKIxrPc87MNWxgJyIOqgDt89/GZmbenGN+X8l+q2+QE6siM5dxVzn+rnIVP+GbknnTTj7EMl5GxKQaMAVaV6JanS1hp538RgvrhHQCWsgSLuECBsp++jideWbe6YP0AmqVmbdx6zTIiW26iCLieWauYCMzf0XE0+Na55JaADLBC1z7W57/iH4DqWV2ZO5vQccAAAAASUVORK5CYII=">
+                   
+                    <input class="search-bar-input" name="search-bar" placeholder="Search for Songs, Artists, Playlists and More">
+                    <!--mic-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAB5UlEQVRIie2VMWgUURCGv9lbJWI8Q4KVtyDxsNjDmC6ghUUKQRRBsFYsUrkYO9OltjDgRQs7K0FCKrFJEFNoYWdxiblTDtmLVe4kORCV3TcWt1nisuteUAvRv3pv5v3/PzPFPKEPeGOtEoHOAecAUJYEbt9bcxp5XOlT/A0wnEh17ICxubqz8TO+lWcQVZ4UBxgObL2bR8832BlLGkSyc3swOJSZUQ7/DoNfwn+Df8DA3n3xXL8LDB4IB4p31o90o/A2UExlC1sxt9wosn9gC+hWV534fbKDjwDf7K/H44iynFmesrRzNPsOlqPjD6vDShBWAALMxZioMgO0U+Q7oTATNyNhxNGVTAOx5DGAIJ5XbhQB7r8t1e2AU6BP6I1rG1gIhYkHNecdwPR4c0jA61XU04g1k2V5Ff8FylmUxZG10pVZxKRUH2MWtdpuaxG4BDyvrjqTmR0AFMLgGvAJ4fJmpbUwNfo+c99MjzeHdol3jBauJ9+k/gc3XX/CwDN6a3oToWpM4aladn0wEPkin08Yy7oQjWUEaCOcr9ac130ZANw6+WE0CK2HwGTWmx50WUMzNb9+rJmWzf3RblQ2zogxVxFOA5UoXEN5pZb1aL529GWeRt/wXF8919e9cP7+XfTHDb4DmuSZiKa4AEgAAAAASUVORK5CYII=" class="mic-icon"/>
+                </div>
+            </div>
+        <!--NOTIFICATION ICON-->
+        <img class="notif-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACOUlEQVRIibWVy0tUcRTHP+fONEnhTJpIGPaCFpI9NkEFA2MvqCCSFkL0JwRh0sIpcDYqabRKaFcLd0WImwgqbFnRSnMbQTkipY61ycn7bTF3cOZ67zzIvnD53Xte3++B3zkXaoSkS5K+SpqTdLnWvGitgcAjYLf3fhaYBMic/9maz69dcWUdZgjcmVjMmci8TCwCWBXVzcBNoAtIeuYJ4KoZ6u/K3TYYALb5UlfM7M7gm8TDUAJJx4BXwM4Scw7oMLNs+vTyfURfRYHYgFPBP+orDvDEzLJ3U0upjcVtTtiDMgvKVCI4GWB7BuCa0+vTOubm1bm1Jd7vi7dAAkkNwPYA16wXkSw3O93OFpsMqhXWQVMQL7AMMiDhc7UhReohaA6wGdACJrD5kLyaCfaE2I8XmPTiXwmSIfYeANdxRoDfZR7jwOqP3Jgv/lfgHEh6X1Trwxpw1Mw+pVO565geE74NViX1bOhA0omQ4gAR4KmkxNBUYtyRzgEz/iCDj3Kc1PBU00RZB5KiwFvgVAhBEe+AbjPLAqTPLB4xRQ7hynUjkenh142zgVmSBlU7vkvqlbSjkhIrKX4NGKfKAgxAHvgAfAFiwD5gyMyelyrfK2mlDvXVkJPUBuvX9AbQWKfySogDt0oJLmxi8SIulhK0/weCdlgfkoPAYaAT2A/sovB7bPViisuveC6VnH+ABeAbMA98pjAb0zVLkRT3Vnjxu0FSvN6WKhGMBtyUe5tJEPVIFrxnRIWpr4q/h69iTN2ZicYAAAAASUVORK5CYII=">
+        <!--USER ACCOUNT IMAGE-->
+        <div class="user-img"></div>
+
+        </div>
+    <!--NAVBAR-OVER-->
+
+<!--MAIN-CONTENT-DIV-->
+    <div id="main-content-div">
+
+    <!--LEFT PANEL OF HOME PAGE-->
+        <!--MUSIC ALBUMS DIV I.E THE NAME OF DIV USED FOR ASIDE SECTION-1 I.E LEFT-PANEL OF HOME PAGE-->
+        <div id="music-albums-div">
+
+            <!--HOMEPAGE CAROUSEL-->
+
+            <div id="homepg-carousel-div">
+                <img class="home-screens" src="https://e-cdns-images.dzcdn.net/images/cover/fb3bd08b4d51258413488e269ad8dbbd/264x264.jpg"/>
+                <img class="home-screens" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpQC6j-YbTex61mkSU4ZNoLXuDMojPWyto8Uy8_9dtk7yf0JlLY8JQyh9D5Q2m4oTjNM4&usqp=CAU"/>
+                <img class="home-screens" src="https://i.scdn.co/image/ab67706c0000bebb40a0d7d2865526c5a41f3164"/>
+                <img class="home-screens" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ21z5y4s-XhqQv6wx_W1OD9mGd4GbXkrIXvw&usqp=CAU"/>
+            </div>
+
+            <!--NEW RELEASES SECTION HEADING-->
+            <div class="new-releases"><span>New Releases</span></div>
+
+            <!--NEW RELEASES SECTION STARTS-->
+            <div id="latest-releases">
+                <!--CLICKING ON ANY DIV CONTAINER IN THIS SECTION WILL DISPLAY THE SONG PLAYER IN THE FOOTER OF THE PAGE OTHERWISE IT'S HIDDEN BY DEFAULT-->
+                <a href="#footer-song-player">
+
+                    <!--SONG-1-->
+                    <div class="latest-releases-song-div">
+                    <!--ADDING TOOLTIP FOR 'PLAY NOW'as a reminder to click on this div for the song player in footer-->
+                    <span class="tooltip-text">Play Now</span>
+
+                    <div class="latest-song-cover release1">
+                        <!-- DUMMY play/pause-bottons on the song cover which can be put to actual use using javascript-->
+                        <input type="checkbox" id="LR-player">
+                        <label></label>
+                    </div>
+                    
+                    <div class="latest-song-name-info"><p>Feels</p><span>By </span><span class="artist-name">WATTS, Khalid</span><br><span class="year-of-song">2021 &middot; SINGLE</span></div>
+                    <div class="latest-song-div-icons">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABmJLR0QA/wD/AP+gvaeTAAABkElEQVQ4jbXUO2sWURDG8d9oTCQIXjHgNUhC1MJLEbCzEcHKwg8g2FnZ+SlE0c5vIdjZ2ImNgmChIIopAuItKklAzftY7CIryRuT+DqwsGdm9r/PmZlz+A9Wa01MMoqLWMSDqlrolzu0DgEXcLoVMpnkRlVlpcRN64CexCPcwgSO9EtcEzTJHozheVXNYr5dbxyKs/iK1+161V78FZpkHOdwr6p6SXZiFO82BE0yhMt4qaknHMN3vO333R/dT3IC09jcurZjF+50Oj2Fn7iSpIcZPKyqH8uUJtmHq9iKhfaZwP2q+tz59zM8aeNLOI9rSZbXOcmZJLe7wSR3k5zqt802Z2+bN7lMafve6zfQq9inVvG2laAbtcOaHswMEnoUH6rq4yChU5qR+23/BE2yRXMHDA6K45p6vug6u8O/iOEkY/iG3a1/uh2zN1U111G5A5fwtKq+dKHdmRzBdRzoxGc147Jfs6s5zfGM5ri+x82qml8R2oKHcAgjrfKZ9hIZbv3jOIgeXuFxVS31r84A7RdvG498EtlFFAAAAABJRU5ErkJggg==">
+               
+                        <!--more-icon as a checkbox-->
+                        <input type="checkbox" id="more-icon">
+                        <label></label> <br> <!--not used the 'for' attribute of label because checkbox was sufficient to display the dropdown-menu and label was just overriding the display-->
+                                 
+                                <!--DROP-DOWN MENU WHICH OPENS ON CLCIKING THE MORE ICON-->
+                                <div class="dropdown-menu more-icon-menu" id="dropdown-menu">
+                                    <ul>
+                                        <!--dropdown-menu-icons-->
+                                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAByElEQVQ4jdWUPUuWcRTGf9eT1pRpGCb0OtWQUorgVhY0ZkO1ZChqfgc/RmtBNdTUC0VjENUHEKylTYISJEubjX4NnieexBS3OnDD9T8v1zn3dZ//Df+VqePqxR3kX1DHW32NluAUsBt4uYMZXgF71Mk/CNVB4ECSO3WeVoe3mGy4BiDJbaBHPdMMtqm31M46z6jXtxtNHVOnC3cVR1sDGATmk6yq/TXpw2o0o/a1kPSXry3JA+Cg2pdkBZgHzjSAs6UFwGXgfuEp4FuS903CJO+AFaCp2X1gtPBr4FwD6AU+qu1AZ5LPajdwJMljtV29Uk97kkfAMbU7ySdgv9oGLAC9jeos0A0sVbeTwFzhUWAv0AFcKt8ccKLwUskkkN9rs42lKeN2ec21CbAM9FTgAzBQ+DnwHVgFXpRvoHKomi/F8bMBLAJHk6wBK+qhJMus63o1yVqSJ0meJllTrwELSb6qh1n/cD+A48BiA3gLnG+ZZqLwXWCfeqr5PoU7gHvlGgeeFR4B3rQudlcV3VTHttEK9cYmi72rGRxQZ5t6qlPq0BZkQ+pk6YY6q57emDRZtyCbsmxOnKqZ+FvCuDqyA8KRjb+vf99+AbJxLd1krV+YAAAAAElFTkSuQmCC">
+                                        &ensp;Go to Artist Radio
+                                        </li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                            width="19" height="19"
+                                            viewBox="0 0 172 172"
+                                            style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g></svg>
+                                        &ensp;Add to Queue
+                                        </li>
+                                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                                        &ensp;Add to Favourites
+                                        </li>
+                                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABmJLR0QA/wD/AP+gvaeTAAAA+klEQVQ4jdXSQSvEQRjH8e+DUjZSDpLdHBwcneSi5OBFyCtwEtoX4SblSO5ehpzIyVHKlZu05bJfl/1v0+zfsNkDv8vMNE+feWYa+PdRZ9TJUs3YEN4ucKROjQIbB5aAQ7XxW6xKCzioA4uYGmpT3QQWMnA/v3J8hQAbwDYwXzjvGTiJiE4tpk4De8ByqeskTxFxDDCRQQ2g/U03eV6rSf5mO0NC98Blteh3pjaBtaTwDXgAXoB3YAtYTPbvgPOI6A5gwHpv/ACugJu0UF1NsAEox1aALnAaEY+Fq9VCOTYLXBegDnALXNRB/fQ+55n60+9Qjjo3EuhP5hM0yllv5yFDlQAAAABJRU5ErkJggg==">
+                                        &ensp;Share
+                                        </li>
+                                    </ul>
+                                </div>
+                        <!--song-1 duration-->
+                        <span>3:42</span>
+                    </div>
+                </div>
+            </a>
+
+                <!--SONG-2-->
+                <a href="#footer-song-player">
+
+                <div class="latest-releases-song-div">
+                    <!--ADDING TOOLTIP FOR 'PLAY NOW'as a reminder to click on this div for the song player in footer-->
+                    <span class="tooltip-text">Play Now</span>
+
+                    <div class="latest-song-cover release2">
+                        <!-- DUMMY play/pause-bottons on the song cover which can be put to actual use using javascript-->
+                        <input type="checkbox" id="LR-player">
+                        <label></label>
+                    </div>
+
+                    <div class="latest-song-name-info"><p>MEDUSA</p><span>By </span><span class="artist-name">Sokko</span><br><span class="year-of-song">2021 &middot; SINGLE</span></div>
+                    <div class="latest-song-div-icons">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABmJLR0QA/wD/AP+gvaeTAAABkElEQVQ4jbXUO2sWURDG8d9oTCQIXjHgNUhC1MJLEbCzEcHKwg8g2FnZ+SlE0c5vIdjZ2ImNgmChIIopAuItKklAzftY7CIryRuT+DqwsGdm9r/PmZlz+A9Wa01MMoqLWMSDqlrolzu0DgEXcLoVMpnkRlVlpcRN64CexCPcwgSO9EtcEzTJHozheVXNYr5dbxyKs/iK1+161V78FZpkHOdwr6p6SXZiFO82BE0yhMt4qaknHMN3vO333R/dT3IC09jcurZjF+50Oj2Fn7iSpIcZPKyqH8uUJtmHq9iKhfaZwP2q+tz59zM8aeNLOI9rSZbXOcmZJLe7wSR3k5zqt802Z2+bN7lMafve6zfQq9inVvG2laAbtcOaHswMEnoUH6rq4yChU5qR+23/BE2yRXMHDA6K45p6vug6u8O/iOEkY/iG3a1/uh2zN1U111G5A5fwtKq+dKHdmRzBdRzoxGc147Jfs6s5zfGM5ri+x82qml8R2oKHcAgjrfKZ9hIZbv3jOIgeXuFxVS31r84A7RdvG498EtlFFAAAAABJRU5ErkJggg==">
+                
+                        <!--more-icon-->
+                        <input type="checkbox" id="more-icon">
+                        <label></label> <br>
+                                 
+                                <!--dropdown menu-->
+                                <div class="dropdown-menu more-icon-menu" id="dropdown-menu">
+                                    <ul>
+                                        <!--dropdown-menu-icons-->
+                                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAByElEQVQ4jdWUPUuWcRTGf9eT1pRpGCb0OtWQUorgVhY0ZkO1ZChqfgc/RmtBNdTUC0VjENUHEKylTYISJEubjX4NnieexBS3OnDD9T8v1zn3dZ//Df+VqePqxR3kX1DHW32NluAUsBt4uYMZXgF71Mk/CNVB4ECSO3WeVoe3mGy4BiDJbaBHPdMMtqm31M46z6jXtxtNHVOnC3cVR1sDGATmk6yq/TXpw2o0o/a1kPSXry3JA+Cg2pdkBZgHzjSAs6UFwGXgfuEp4FuS903CJO+AFaCp2X1gtPBr4FwD6AU+qu1AZ5LPajdwJMljtV29Uk97kkfAMbU7ySdgv9oGLAC9jeos0A0sVbeTwFzhUWAv0AFcKt8ccKLwUskkkN9rs42lKeN2ec21CbAM9FTgAzBQ+DnwHVgFXpRvoHKomi/F8bMBLAJHk6wBK+qhJMus63o1yVqSJ0meJllTrwELSb6qh1n/cD+A48BiA3gLnG+ZZqLwXWCfeqr5PoU7gHvlGgeeFR4B3rQudlcV3VTHttEK9cYmi72rGRxQZ5t6qlPq0BZkQ+pk6YY6q57emDRZtyCbsmxOnKqZ+FvCuDqyA8KRjb+vf99+AbJxLd1krV+YAAAAAElFTkSuQmCC">
+                                            &ensp;Go to Artist Radio
+                                            </li>
+                                            <li><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                width="19" height="19"
+                                                viewBox="0 0 172 172"
+                                                style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g></svg>
+                                            &ensp;Add to Queue
+                                            </li>
+                                            <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                                            &ensp;Add to Favourites
+                                            </li>
+                                            <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABmJLR0QA/wD/AP+gvaeTAAAA+klEQVQ4jdXSQSvEQRjH8e+DUjZSDpLdHBwcneSi5OBFyCtwEtoX4SblSO5ehpzIyVHKlZu05bJfl/1v0+zfsNkDv8vMNE+feWYa+PdRZ9TJUs3YEN4ucKROjQIbB5aAQ7XxW6xKCzioA4uYGmpT3QQWMnA/v3J8hQAbwDYwXzjvGTiJiE4tpk4De8ByqeskTxFxDDCRQQ2g/U03eV6rSf5mO0NC98Blteh3pjaBtaTwDXgAXoB3YAtYTPbvgPOI6A5gwHpv/ACugJu0UF1NsAEox1aALnAaEY+Fq9VCOTYLXBegDnALXNRB/fQ+55n60+9Qjjo3EuhP5hM0yllv5yFDlQAAAABJRU5ErkJggg==">
+                                            &ensp;Share
+                                            </li>
+                                    </ul>
+                                </div>
+                        <!--song-2 duration-->
+                        <span>2:38</span>
+                    </div>
+                </div>
+            </a>
+
+                <!--SONG-3-->
+                <a href="#footer-song-player">
+
+                <div class="latest-releases-song-div">
+                    <!--ADDING TOOLTIP FOR 'PLAY NOW'as a reminder to click on this div for the song player in footer-->
+                    <span class="tooltip-text">Play Now</span>
+
+                    <div class="latest-song-cover release3">
+                        <!-- DUMMY play/pause-bottons on the song cover which can be put to actual use using javascript-->
+                        <input type="checkbox" id="LR-player">
+                        <label></label>
+                    </div>
+
+                    <div class="latest-song-name-info"><p>Nobody Is Listening</p><span>By </span><span class="artist-name">ZAYN</span><br><span class="year-of-song">2021 &middot; ALBUM</span></div>
+                    <div class="latest-song-div-icons">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABmJLR0QA/wD/AP+gvaeTAAABkElEQVQ4jbXUO2sWURDG8d9oTCQIXjHgNUhC1MJLEbCzEcHKwg8g2FnZ+SlE0c5vIdjZ2ImNgmChIIopAuItKklAzftY7CIryRuT+DqwsGdm9r/PmZlz+A9Wa01MMoqLWMSDqlrolzu0DgEXcLoVMpnkRlVlpcRN64CexCPcwgSO9EtcEzTJHozheVXNYr5dbxyKs/iK1+161V78FZpkHOdwr6p6SXZiFO82BE0yhMt4qaknHMN3vO333R/dT3IC09jcurZjF+50Oj2Fn7iSpIcZPKyqH8uUJtmHq9iKhfaZwP2q+tz59zM8aeNLOI9rSZbXOcmZJLe7wSR3k5zqt802Z2+bN7lMafve6zfQq9inVvG2laAbtcOaHswMEnoUH6rq4yChU5qR+23/BE2yRXMHDA6K45p6vug6u8O/iOEkY/iG3a1/uh2zN1U111G5A5fwtKq+dKHdmRzBdRzoxGc147Jfs6s5zfGM5ri+x82qml8R2oKHcAgjrfKZ9hIZbv3jOIgeXuFxVS31r84A7RdvG498EtlFFAAAAABJRU5ErkJggg==">
+                
+                        <!--more-icon-->
+                        <input type="checkbox" id="more-icon">
+                        <label></label> <br>
+                                 
+                                <!--DROPDOWN MENU-->
+                                <div class="dropdown-menu more-icon-menu" id="dropdown-menu">
+                                    <ul>
+                                        <!--dropdown-menu-icons-->
+                                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAByElEQVQ4jdWUPUuWcRTGf9eT1pRpGCb0OtWQUorgVhY0ZkO1ZChqfgc/RmtBNdTUC0VjENUHEKylTYISJEubjX4NnieexBS3OnDD9T8v1zn3dZ//Df+VqePqxR3kX1DHW32NluAUsBt4uYMZXgF71Mk/CNVB4ECSO3WeVoe3mGy4BiDJbaBHPdMMtqm31M46z6jXtxtNHVOnC3cVR1sDGATmk6yq/TXpw2o0o/a1kPSXry3JA+Cg2pdkBZgHzjSAs6UFwGXgfuEp4FuS903CJO+AFaCp2X1gtPBr4FwD6AU+qu1AZ5LPajdwJMljtV29Uk97kkfAMbU7ySdgv9oGLAC9jeos0A0sVbeTwFzhUWAv0AFcKt8ccKLwUskkkN9rs42lKeN2ec21CbAM9FTgAzBQ+DnwHVgFXpRvoHKomi/F8bMBLAJHk6wBK+qhJMus63o1yVqSJ0meJllTrwELSb6qh1n/cD+A48BiA3gLnG+ZZqLwXWCfeqr5PoU7gHvlGgeeFR4B3rQudlcV3VTHttEK9cYmi72rGRxQZ5t6qlPq0BZkQ+pk6YY6q57emDRZtyCbsmxOnKqZ+FvCuDqyA8KRjb+vf99+AbJxLd1krV+YAAAAAElFTkSuQmCC">
+                                            &ensp;Go to Artist Radio
+                                            </li>
+                                            <li><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                width="19" height="19"
+                                                viewBox="0 0 172 172"
+                                                style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g></svg>
+                                            &ensp;Add to Queue
+                                            </li>
+                                            <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                                            &ensp;Add to Favourites
+                                            </li>
+                                            <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABmJLR0QA/wD/AP+gvaeTAAAA+klEQVQ4jdXSQSvEQRjH8e+DUjZSDpLdHBwcneSi5OBFyCtwEtoX4SblSO5ehpzIyVHKlZu05bJfl/1v0+zfsNkDv8vMNE+feWYa+PdRZ9TJUs3YEN4ucKROjQIbB5aAQ7XxW6xKCzioA4uYGmpT3QQWMnA/v3J8hQAbwDYwXzjvGTiJiE4tpk4De8ByqeskTxFxDDCRQQ2g/U03eV6rSf5mO0NC98Blteh3pjaBtaTwDXgAXoB3YAtYTPbvgPOI6A5gwHpv/ACugJu0UF1NsAEox1aALnAaEY+Fq9VCOTYLXBegDnALXNRB/fQ+55n60+9Qjjo3EuhP5hM0yllv5yFDlQAAAABJRU5ErkJggg==">
+                                            &ensp;Share
+                                            </li>
+                                    </ul>
+                                </div>
+                            
+                            <!--SONG-3 (album) duration-->
+                            <span>35 min</span>
+                    </div>
+                </div>
+            </a>
+
+                <!--SONG-4-->
+                <a href="#footer-song-player">
+
+                    <div class="latest-releases-song-div">
+                    <!--ADDING TOOLTIP FOR 'PLAY NOW'as a reminder to click on this div for the song player in footer-->
+                    <span class="tooltip-text">Play Now</span>
+
+                    <div class="latest-song-cover release4">
+                        <!-- DUMMY play/pause-bottons on the song cover which can be put to actual use using javascript-->
+                        <input type="checkbox" id="LR-player">
+                        <label></label>
+                    </div>
+
+                    <div class="latest-song-name-info"><p>Lovers In The Night</p><span>By </span><span class="artist-name">Seori</span><br><span class="year-of-song">2021 &middot; SINGLE</span></div>
+                    <div class="latest-song-div-icons">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABmJLR0QA/wD/AP+gvaeTAAABkElEQVQ4jbXUO2sWURDG8d9oTCQIXjHgNUhC1MJLEbCzEcHKwg8g2FnZ+SlE0c5vIdjZ2ImNgmChIIopAuItKklAzftY7CIryRuT+DqwsGdm9r/PmZlz+A9Wa01MMoqLWMSDqlrolzu0DgEXcLoVMpnkRlVlpcRN64CexCPcwgSO9EtcEzTJHozheVXNYr5dbxyKs/iK1+161V78FZpkHOdwr6p6SXZiFO82BE0yhMt4qaknHMN3vO333R/dT3IC09jcurZjF+50Oj2Fn7iSpIcZPKyqH8uUJtmHq9iKhfaZwP2q+tz59zM8aeNLOI9rSZbXOcmZJLe7wSR3k5zqt802Z2+bN7lMafve6zfQq9inVvG2laAbtcOaHswMEnoUH6rq4yChU5qR+23/BE2yRXMHDA6K45p6vug6u8O/iOEkY/iG3a1/uh2zN1U111G5A5fwtKq+dKHdmRzBdRzoxGc147Jfs6s5zfGM5ri+x82qml8R2oKHcAgjrfKZ9hIZbv3jOIgeXuFxVS31r84A7RdvG498EtlFFAAAAABJRU5ErkJggg==">                        
+            
+                        <!--more-icon-->
+                        <input type="checkbox" id="more-icon">
+                        <label></label> <br>
+                             
+                            <!--DROPDOWN MENU-->
+                            <div class="dropdown-menu more-icon-menu" id="dropdown-menu">
+                                <ul>
+                                    <!--dropdown-menu-icons-->
+                                    <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAByElEQVQ4jdWUPUuWcRTGf9eT1pRpGCb0OtWQUorgVhY0ZkO1ZChqfgc/RmtBNdTUC0VjENUHEKylTYISJEubjX4NnieexBS3OnDD9T8v1zn3dZ//Df+VqePqxR3kX1DHW32NluAUsBt4uYMZXgF71Mk/CNVB4ECSO3WeVoe3mGy4BiDJbaBHPdMMtqm31M46z6jXtxtNHVOnC3cVR1sDGATmk6yq/TXpw2o0o/a1kPSXry3JA+Cg2pdkBZgHzjSAs6UFwGXgfuEp4FuS903CJO+AFaCp2X1gtPBr4FwD6AU+qu1AZ5LPajdwJMljtV29Uk97kkfAMbU7ySdgv9oGLAC9jeos0A0sVbeTwFzhUWAv0AFcKt8ccKLwUskkkN9rs42lKeN2ec21CbAM9FTgAzBQ+DnwHVgFXpRvoHKomi/F8bMBLAJHk6wBK+qhJMus63o1yVqSJ0meJllTrwELSb6qh1n/cD+A48BiA3gLnG+ZZqLwXWCfeqr5PoU7gHvlGgeeFR4B3rQudlcV3VTHttEK9cYmi72rGRxQZ5t6qlPq0BZkQ+pk6YY6q57emDRZtyCbsmxOnKqZ+FvCuDqyA8KRjb+vf99+AbJxLd1krV+YAAAAAElFTkSuQmCC">
+                                        &ensp;Go to Artist Radio
+                                        </li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                            width="19" height="19"
+                                            viewBox="0 0 172 172"
+                                            style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g></svg>
+                                        &ensp;Add to Queue
+                                        </li>
+                                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                                        &ensp;Add to Favourites
+                                        </li>
+                                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABmJLR0QA/wD/AP+gvaeTAAAA+klEQVQ4jdXSQSvEQRjH8e+DUjZSDpLdHBwcneSi5OBFyCtwEtoX4SblSO5ehpzIyVHKlZu05bJfl/1v0+zfsNkDv8vMNE+feWYa+PdRZ9TJUs3YEN4ucKROjQIbB5aAQ7XxW6xKCzioA4uYGmpT3QQWMnA/v3J8hQAbwDYwXzjvGTiJiE4tpk4De8ByqeskTxFxDDCRQQ2g/U03eV6rSf5mO0NC98Blteh3pjaBtaTwDXgAXoB3YAtYTPbvgPOI6A5gwHpv/ACugJu0UF1NsAEox1aALnAaEY+Fq9VCOTYLXBegDnALXNRB/fQ+55n60+9Qjjo3EuhP5hM0yllv5yFDlQAAAABJRU5ErkJggg==">
+                                        &ensp;Share
+                                        </li>
+                                </ul>
+                            </div>
+
+                        <!--SONG-4 DURATION-->
+                        <span>3:31</span>
+                    </div>
+                </div>
+                </a>
+
+            </div>
+
+
+    <!--POPULAR ARTISTS SECTION--> 
+
+                    <!--popular artists-heading-->
+                    <div id="popular-artists-heading">Popular Artists</div>
+
+                        <!--main div containing all the popular artists-->
+                        <div id="popular-artists-div">
+
+                            <!--1-->
+                            <div class="popular-artist-cover-div">
+                                <div class="artist-image artist-1"></div> <!--THIS IS THE BG ELEMENT--> 
+
+                    <!--HACK TO PLACE ANY FULL OPAQUE ELEMENT OVER A BACKGROUND WITH REDUCED OPACITY-->
+
+                    <!--PLACING OPAQUE ELEMENTS OVER BACKGROUNDS WITH REDUCED OPACITY IS DONE BY MAKING 
+                    THE ELEMENT (**NOT A CHILD OF THE BG ELEMENT**) A SEPARATE DIV (OR DIRECTLY USE THE ELEMENT AFTER THE BG ELEMENT) 
+                    AND FLOAT IT OVER THAT BACKGROUND ELEMENT-->
+
+                            <!--HERE OPAQUE ELEMENT IS THE- PLAY BUTTON ON TOP OF THE ARTIST IMAGE-->                                                
+
+                                <!--clicking on this play-button will direct the user to the SINGLE PLAYLIST SCREEN-->
+                                <a href="Single Playlist Screen.html">
+                                    <img class="play-now" src="https://img.icons8.com/nolan/56/youtube-play.png"/>                      
+                                </a>
+                                
+                                <span>Shawn Mendes</span>
+                            </div>
+                            <!--2-->
+                            <div class="popular-artist-cover-div">
+                                <div class="artist-image artist-2"></div>
+
+                                <!--clicking on this play-button will direct the user to the SINGLE PLAYLIST SCREEN-->
+                                <a href="Single Playlist Screen.html">
+                                    <img class="play-now" src="https://img.icons8.com/nolan/56/youtube-play.png"/>                      
+                                </a> 
+
+                                <span>Sasha Sloan</span>
+                            </div>
+                            <!--3-->
+                            <div class="popular-artist-cover-div">
+                                <div class="artist-image artist-3"></div>
+
+                                <!--clicking on this play-button will direct the user to the SINGLE PLAYLIST SCREEN-->
+                                <a href="Single Playlist Screen.html">
+                                    <img class="play-now" src="https://img.icons8.com/nolan/56/youtube-play.png"/>                      
+                                </a> 
+
+                                <span>Niall Horan</span>
+                            </div>
+                            <!--4-->
+                            <div class="popular-artist-cover-div">
+                                <div class="artist-image artist-4"></div>
+
+                                <!--clicking on this play-button will direct the user to the SINGLE PLAYLIST SCREEN-->
+                                <a href="Single Playlist Screen.html">
+                                    <img class="play-now" src="https://img.icons8.com/nolan/56/youtube-play.png"/>                      
+                                </a> 
+
+                                <span>Katy Perry</span>
+                            </div>
+                            <!--5-->
+                            <div class="popular-artist-cover-div">
+                                <div class="artist-image artist-5"></div>
+
+                                <!--clicking on this play-button will direct the user to the SINGLE PLAYLIST SCREEN-->
+                                <a href="Single Playlist Screen.html">
+                                    <img class="play-now" src="https://img.icons8.com/nolan/56/youtube-play.png"/>                      
+                                </a>  
+
+                                <span>Lauv</span>
+                            </div>
+                            <!--6-->
+                            <div class="popular-artist-cover-div">
+                                <div class="artist-image artist-6"></div>                      
+
+                            <!--clicking on this play-button will direct the user to the SINGLE PLAYLIST SCREEN-->
+                            <a href="Single Playlist Screen.html">
+                                <img class="play-now" src="https://img.icons8.com/nolan/56/youtube-play.png"/>                      
+                            </a>       
+                                <span>Taylor Swift</span>
+                            </div>
+
+                        </div>
+
+        <!--MOOD RADIO SECTION-->
+
+                        <!--main div container of mood radio section-->
+                        <div id="mood-radio-div">
+
+                        <!--MOOD-RADIO LABEL-->
+                            <div id="mood-radio-label-div">
+
+                                <div class="lower-div"></div>
+                                <div class="middle-div"></div>
+                                <div class="upper-div"></div>
+
+                                <div class="mood-radio-label-name">
+                                    <span>Mood Radio</span> <br>
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#fbfafa"><path d="M35.62953,17.17313c-0.77361,0.00206 -1.52394,0.2648 -2.12984,0.74578c-20.3585,15.72294 -33.49969,40.38247 -33.49969,68.08109c0,27.69863 13.14119,52.35816 33.49969,68.0811c0.96892,0.79275 2.29199,0.99661 3.4546,0.53228c1.16261,-0.46433 1.98122,-1.52356 2.13742,-2.76568c0.15621,-1.24212 -0.37465,-2.47105 -1.38608,-3.20879c-18.74054,-14.47338 -30.82563,-37.11385 -30.82563,-62.6389c0,-25.52505 12.08508,-48.16552 30.82563,-62.63891c1.18237,-0.89093 1.66218,-2.43837 1.19128,-3.84193c-0.4709,-1.40357 -1.78692,-2.34849 -3.26737,-2.34603zM136.26297,17.17313c-1.46087,0.04243 -2.7355,1.00321 -3.17857,2.39592c-0.44307,1.39271 0.04214,2.91335 1.20997,3.79205c18.74054,14.47338 30.82563,37.11385 30.82563,62.63891c0,25.52505 -12.08508,48.16552 -30.82563,62.6389c-1.01143,0.73774 -1.54228,1.96667 -1.38607,3.20879c0.15621,1.24212 0.97482,2.30134 2.13742,2.76567c1.1626,0.46433 2.48567,0.26048 3.45459,-0.53227c20.3585,-15.72294 33.49969,-40.38247 33.49969,-68.0811c0,-27.69863 -13.14119,-52.35816 -33.49969,-68.08109c-0.63462,-0.50443 -1.42699,-0.76855 -2.23735,-0.74578zM52.3189,34.89719c-0.77325,-0.02711 -1.53306,0.20723 -2.15672,0.66516c-15.76081,11.21715 -26.08219,29.6319 -26.08219,50.43765c0,20.80576 10.32138,39.2205 26.08219,50.43765c0.99855,0.77007 2.33837,0.93215 3.49174,0.42239c1.15337,-0.50976 1.93543,-1.60966 2.03814,-2.86646c0.10272,-1.2568 -0.49037,-2.46909 -1.54566,-3.15936c-14.02271,-9.98012 -23.1864,-26.30013 -23.1864,-44.83422c0,-18.53408 9.1637,-34.85409 23.1864,-44.83422c1.21933,-0.8423 1.76225,-2.37077 1.34747,-3.79352c-0.41478,-1.42274 -1.69402,-2.41999 -3.17497,-2.47508zM119.91625,34.89719c-1.52422,-0.04708 -2.89755,0.91485 -3.37418,2.36339c-0.47664,1.44854 0.05717,3.038 1.31153,3.9052c14.02271,9.98012 23.1864,26.30013 23.1864,44.83422c0,18.53408 -9.1637,34.85409 -23.1864,44.83422c-1.05529,0.69027 -1.64838,1.90256 -1.54566,3.15936c0.10272,1.2568 0.88478,2.3567 2.03814,2.86646c1.15337,0.50976 2.49319,0.34768 3.49174,-0.42239c15.76081,-11.21715 26.08219,-29.6319 26.08219,-50.43765c0,-20.80576 -10.32138,-39.2205 -26.08219,-50.43765c-0.55887,-0.41027 -1.22865,-0.64212 -1.92156,-0.66516zM68.9814,52.75563c-0.65827,-0.02151 -1.30887,0.14639 -1.87453,0.48375c-11.31323,6.53981 -18.94687,18.77252 -18.94687,32.76063c0,13.9881 7.63365,26.22081 18.94687,32.76063c1.64568,0.95179 3.75134,0.38927 4.70313,-1.2564c0.95179,-1.64568 0.38927,-3.75134 -1.2564,-4.70313c-9.26485,-5.35571 -15.5136,-15.31256 -15.5136,-26.8011c0,-11.48854 6.24874,-21.44538 15.5136,-26.8011c1.35125,-0.75377 2.03308,-2.31686 1.6663,-3.82003c-0.36678,-1.50317 -1.69192,-2.57656 -3.23849,-2.62324zM102.91781,52.75563c-1.52897,0.0878 -2.81582,1.1757 -3.15677,2.66876c-0.34096,1.49305 0.34607,3.03172 1.68537,3.77452c9.26485,5.35571 15.5136,15.31256 15.5136,26.8011c0,11.48854 -6.24874,21.44538 -15.5136,26.8011c-1.64568,0.95179 -2.20819,3.05745 -1.2564,4.70313c0.95179,1.64568 3.05745,2.20819 4.70313,1.2564c11.31323,-6.53981 18.94687,-18.77252 18.94687,-32.76063c0,-13.9881 -7.63365,-26.22081 -18.94687,-32.76063c-0.49509,-0.29551 -1.0565,-0.46186 -1.63266,-0.48375c-0.11415,-0.00569 -0.22851,-0.00569 -0.34265,0zM86,72.24c-7.55869,0 -13.76,6.20131 -13.76,13.76c0,7.55869 6.20131,13.76 13.76,13.76c7.55869,0 13.76,-6.20131 13.76,-13.76c0,-7.55869 -6.20131,-13.76 -13.76,-13.76zM86,79.12c3.84046,0 6.88,3.03954 6.88,6.88c0,3.84046 -3.03954,6.88 -6.88,6.88c-3.84046,0 -6.88,-3.03954 -6.88,-6.88c0,-3.84046 3.03954,-6.88 6.88,-6.88z"></path></g></g></svg>
+                                </div>
+                            </div>
+
+                        <!---CIRCLES showing the different GENRES-->
+                        <div id="genres-div">  
+
+                            <div id="single-genre-container">
+                                <div class="genre-circle-div genre-1"></div>
+                                <div class="genre-text">Love</div>
+                            </div>
+
+                            <div id="single-genre-container">
+                                <div class="genre-circle-div genre-2"></div>
+                                <div class="genre-text">Retro</div>
+                            </div>
+
+                            <div id="single-genre-container">
+                                <div class="genre-circle-div genre-3"></div>
+                                <div class="genre-text">Focus</div>
+                            </div>
+
+                            <div id="single-genre-container">
+                                <div class="genre-circle-div genre-4"></div>
+                                <div class="genre-text special">Workout</div>
+                            </div>
+
+                            <div id="single-genre-container">
+                                <div class="genre-circle-div genre-5"></div>
+                                <div class="genre-text">Sleep</div>
+                            </div>
+
+                            <!--SQUARE GENRES NOW WITHIN THE SAME GENRE DIV-->
+                            <div id="square-genre-container">
+                                <!--1-->
+                                <!--just used genre-square-div to give opacity only to img & not to text-->
+                                <div class="genre-square-div sqgenre-1">
+                                    <img src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                                </div>
+                                <div class="sqgenre-text">Party</div> 
+                            </div>
+
+                            <!--2-->
+                            <div id="square-genre-container">
+                                <div class="genre-square-div sqgenre-2">
+                                    <img src="https://images.pexels.com/photos/4365592/pexels-photo-4365592.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+
+                                </div>
+                                <div class="sqgenre-text special2">Instrumental</div> 
+                            </div>
+
+                            <!--3-->
+                            <div id="square-genre-container">
+                                <div class="genre-square-div sqgenre-3">
+                                    <img src="https://images.pexels.com/photos/335393/pexels-photo-335393.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+
+                                </div>
+                                <div class="sqgenre-text">Travel</div> 
+                            </div>
+
+                        </div>
+                            
+                </div>
+
+        <!--LATEST ENGLISH SONGS SECTION-->
+
+                        <!--section-heading-->
+                        <div id="latest-eng-hindi-heading">Latest English</div>
+
+                    <!--LATEST-ENGLISH-SONGS-CONTAINER-->
+                        <!--USED FLEXBOX-->
+                        <div id="latest-eng-songs-container">
+
+                            <!--song-1-->
+                            <div class="single-english-song-div">
+                                <div class="eng-song-cover">
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/0/09/Drivers_License_by_Olivia_Rodrigo.png"/>
+                                </div>
+                                    
+                                <span class="eng-song-name">drivers license</span> <br>
+                                <span class="eng-song-artist-name">Olivia Rodrigo</span>
+                                
+                            </div>
+
+                            <!--song-2-->
+                            <div class="single-english-song-div">
+                                <div class="eng-song-cover">
+                                    <img src="https://i.redd.it/xx9b708pb5761.png"/>
+                                </div>
+                                    
+                                <span class="eng-song-name">Life's A Mess II</span> <br>
+                                <span class="eng-song-artist-name">Juice WRLD</span>
+                                
+                            </div>
+
+                            <!--song-3-->
+                            <div class="single-english-song-div">
+                                <div class="eng-song-cover">
+                                    <img src="https://www.genius-lyrics.com/wp-content/uploads/2021/03/Slower-Lyrics-Tate-McRae.jpg"/>
+                                </div>
+
+                                <span class="eng-song-name">slower</span> <br>
+                                <span class="eng-song-artist-name">Tate McRae</span>
+                            </div>
+
+                            <!--song-4-->
+                            <div class="single-english-song-div">
+                                <div class="eng-song-cover">
+                                    <img src="https://m.media-amazon.com/images/I/412zpLI8efL.jpg"/>
+                                </div>
+                                    
+                                <span class="eng-song-name">Yessir</span> <br>
+                                <span class="eng-song-artist-name">Kid Jingx</span>
+                            </div>
+
+                            <!--song-5-->
+                            <div class="single-english-song-div">
+                                <div class="eng-song-cover">
+                                    <img src="https://www.genius-lyrics.com/wp-content/uploads/2021/03/Creep-Lyrics-mxmtoon.jpg"/>
+                                </div>
+                                    
+                                <span class="eng-song-name">creep</span> <br>
+                                <span class="eng-song-artist-name">mxmtoon</span>
+                               
+                            </div>
+
+                            <!--song-6-->
+                            <div class="single-english-song-div">
+                                <div class="eng-song-cover">
+                                    <img src="https://a10.gaanacdn.com/images/albums/94/3781494/crop_175x175_3781494.jpg"/>
+                                </div>
+                                    
+                                <span class="eng-song-name">rubberband</span> <br>
+                                <span class="eng-song-artist-name">Tate McRae</span>
+                            </div>
+
+                        </div>
+
+        <!--LATEST HINDI SONGS SECTION-->
+
+                <!--same code as latest english songs section is used so name of classes used is also same- just the song covers & names are changed-->
+                <div id="latest-eng-hindi-heading" class="hindi-heading">
+                    Latest Hindi
+                </div>
+
+            <!--LATEST-HINDI-SONGS-CONTAINER-->
+                <!--USED FLEXBOX-->
+                <div id="latest-eng-songs-container" class="hindi-container">
+
+                    <!--song-1-->
+                    <div class="single-english-song-div">
+                        <div class="eng-song-cover">
+                            <img src="https://song.vlcmusic.com/tiny_image/timthumb.php?q=100&w=250&src=images/36841.png"/>
+                        </div>
+
+                        <span class="eng-song-name">Radha</span> <br>
+                        <span class="eng-song-artist-name">Dhvani Bhanushali</span>   
+                        
+                    </div>
+
+                    <!--song-2-->
+                    <div class="single-english-song-div">
+                        <div class="eng-song-cover">
+                            <img src="http://a10.gaanacdn.com/images/albums/35/3842835/crop_480x480_3842835.jpg"/>
+                        </div>
+
+                        <span class="eng-song-name">Chhor Denge</span> <br>
+                        <span class="eng-song-artist-name">Various Artists</span>
+                        
+                    </div>
+
+                    <!--song-3-->
+                    <div class="single-english-song-div">
+                        <div class="eng-song-cover">
+                            <img src="https://1.bp.blogspot.com/-eqVNrz3VcQM/X_szLH9KNjI/AAAAAAAAKU4/bb93Dqbn5PEnocd2xZFcCHmmITT5DC1pACNcBGAsYHQ/w680/Qatra%2BHindi%2BSong%2BImage%2BFeatures%2BStebin%2BBen.jpg"/>
+                        </div>
+                            
+                        <span class="eng-song-name">Qatra</span> <br>
+                        <span class="eng-song-artist-name">Stebin Ben</span>
+                        
+                    </div>
+
+                    <!--song-4-->
+                    <div class="single-english-song-div">
+                        <div class="eng-song-cover">
+                            <img src="http://a10.gaanacdn.com/images/albums/7/3977707/crop_480x480_1615375584_3977707.jpg"/>
+                        </div>
+                            
+                        <span class="eng-song-name">Bawaal</span> <br>
+                        <span class="eng-song-artist-name">MJ5</span>
+
+                    </div>
+
+                    <!--song-5-->
+                    <div class="single-english-song-div">
+                        <div class="eng-song-cover">
+                            <img src="http://a10.gaanacdn.com/images/albums/80/3984480/crop_480x480_3984480.jpg"/>
+                        </div>
+                            
+                        <span class="eng-song-name">Lamha</span> <br>
+                        <span class="eng-song-artist-name">Antara Mitra</span>
+                       
+                    </div>
+
+                    <!--song-6-->
+                    <div class="single-english-song-div new">
+                        <div class="eng-song-cover">
+                            <img src="http://a10.gaanacdn.com/images/albums/65/3774965/crop_480x480_3774965.jpg"/>
+                        </div>
+                            
+                        <span class="eng-song-name">Mehendi Wale </span><span class="eng-song-name special-3">Haath</span> <br>
+                        <span class="eng-song-artist-name">Guru Randhawa</span>
+                    </div>
+
+                </div>
+
+    </div>
+    
+<!------------------------------------------------------------------->
+
+<!--RIGHT PANEL OF HOME PAGE-->
+<!--THIS IS THE RIGHT PANEL I.E ASIDE SECTION-2 OF HOME PG NOW WHICH CONTAINS THE SONG QUEUE-->
+
+<!--LABEL & checkbox FOR 'MORE' BUTTON WHICH APPEARS ON LOW RESOLUTION SCREENS AND IS OTHERWISE HIDDEN-->
+<label for="more"><i class="fas fa-angle-double-left"></i>&ensp;More</label>
+<input type="checkbox" id="more">
+
+
+    <!--SONG QUEUE-->
+         <div id="main-song-queue-div">
+            <div id="queue-name-div"><span>Queue</span>
+
+                <!--dropdown-arrow-as-a-checkbox-->
+                    <input type="checkbox" id="expand-arrow">
+                    <label></label>
+
+                <!--DROPDOWN-MENU-->
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <ul>
+                        <li>Liked Songs</li>
+                        <li>Playlists</li>
+                        <li>Albums</li>
+                        <li>Artists</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--SONG-LIST STARTS-TOTAL 20 SONGS IN THE QUEUE-->
+
+            <div id="song-list-div">
+                <!--to use the CHECKBOX HACK don't give 'for' attr to label otherwise each label will direct you to the first div with the mentioned id as checkboxes are not allowed to have same name/id but SAME ID'S are generally used because multiple checkboxes are needed with same styling-->
+                <div class="song-name-div">
+                    <span>01</span>
+                    <div class="song-cover one">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Wishing Well<br><span>Juice WRLD</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>02</span>
+                    <div class="song-cover two">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Falling<br><span>Harry Styles</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>03</span>
+                    <div class="song-cover three">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Matter To You<br><span>Sasha Sloan</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>04</span>
+                    <div class="song-cover four">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Be Kind<br><span>Marshmello, Halsey</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>05</span>
+                    <div class="song-cover five">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Real Friends<br><span>Camila Cabello</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+                
+                <div class="song-name-div">
+                    <span>06</span>
+                    <div class="song-cover six">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">everything i wanted<br><span>Billie Eilish</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>07</span>
+                    <div class="song-cover seven">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Intentions<br><span>Justin Beiber, Quavo</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>08</span>
+                    <div class="song-cover eight">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">One Dance<br><span>Drake, WizKid, Kyla</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>09</span>
+                    <div class="song-cover nine">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Favorite T-Shirt<br><span>Jake Scott</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>10</span>
+                    <div class="song-cover ten">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Forbidden<br><span>Alexa Cappelli</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+                
+                <div class="song-name-div">
+                    <span>11</span>
+                    <div class="song-cover eleven">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Hawa Banke<br><span>Darshan Raval</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>12</span>
+                    <div class="song-cover twelve">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">G.O.A.T<br><span>Diljit Dosanjh</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>13</span>
+                    <div class="song-cover thirteen">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Rukh<br><span>Akhil</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>14</span>
+                    <div class="song-cover fourteen">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Haaye Ve<br><span>Ammy Virk</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>15</span>
+                    <div class="song-cover fifteen">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Khairiyat<br><span>Pritam, Arijit Singh</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>16</span>
+                    <div class="song-cover sixteen">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Waalian<br><span>Harnoor</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>17</span>
+                    <div class="song-cover seventeen">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Dariya<br><span>Arko</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>18</span>
+                    <div class="song-cover eighteen">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Photograph<br><span>Ed Sheeran</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>19</span>
+                    <div class="song-cover nineteen">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Night Changes<br><span>One Direction</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+                <div class="song-name-div">
+                    <span>20</span>
+                    <div class="song-cover twenty">
+                        <input type="checkbox" id="player">
+                        <label></label>
+                    </div>
+                    <div class="song-name">Mishri<br><span>Anuv Jain</span></div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABnElEQVQ4jc2TP2tUURDFz9y7Su6Slyps459GiSKIWMQmH0GxSSEIgt/BJiCIVdAqdYrAksJCsRIbxW8hW2ktiNW+nZm78t47Nibsrvsva5PT3TnD7565zAXOu2SyMBgMbscYHzRNsx5C+FZV1ceiKH4CQFmWnVardb9pmushhEFVVR+Kovg6FUiy5e77AH4AeJtS+mVmt0TkMcnvACAi10i+abfbPXffBPAIQCel9FxE6rFkqvpSVbenjWFmu2a2O8O75+4vxoplWXZUdX/xC02Xmb3q9/ubABAAIMa4E0L4vCpQRD7FGHdOgQAukByuCiQ5FJGLp8C6rnsk76wKBHC3ruveWEVVj0j+s0ZLpBNVPTo5hxHvfc75yVmBOeenJN9NNc3sIOd8Y1nYcDi8aWYHMxtIJlXtmtmVRTB3v6qqXZJrcxtJFmZ2bGaXZvWY2WUzOya5vujiE+iGqnZzzluTXs5562+yjaVgI9A1dz8c/Y6quu3uh/PGnLsmJKO7vyb5JYTwm+TDlNIzEanOlG5S7r7n7nv/BTk3+gNoou8WRoFTdAAAAABJRU5ErkJggg==">                
+                </div>
+
+            </div>
+        </div>
+    <!--SONG-QUEUE-OVER-->
+
+
+    </div> <!--MAIN-CONTENT-DIV CLOSED--> 
+<!-------------------------------------------------------------------->
+
+<!--FOOTER-->    
+    <!--SONG-PLAYER IN FOOTER-->
+
+        <!--can add it in 'main-content-div' as well, it will get wrapped by flex in next row-->
+
+    <!--MAIN FOOTER DIV-CONTAINING 3 DIVS USING FLEXBOX-->
+    <footer id="footer-song-player">
+
+        <!--DIV1- LEFTMOST DIV-SONG NAME AND LIKE BUTTON-->
+        <div class="footer-song-info">
+
+            <div class="song-cover-footer">
+                <img src="https://images.genius.com/71f8915b1e4a54f72fd3ba26f97f7cd5.440x440x1.jpg">
+            </div>
+
+            <div class="song-info-footer">
+                <b>Lovers In The Night</b> <br>
+                <span>Seori</span>
+            </div>
+
+            <div class="like-icon-footer">
+                <i class="far fa-heart"></i> <!--like-button-->
+                <!-- this 'svg' is for song-cover-enlarge-button, can use it as a button for real using JS to enlarge the song cover-->
+                <svg class="enlarge-cover" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M34.4,22.93333c-6.26689,0 -11.46667,5.19977 -11.46667,11.46667v74.53333c0,3.40676 1.56594,6.46543 3.97526,8.57761c-2.41806,2.10191 -3.97526,5.16507 -3.97526,8.62239v11.46667c0,6.33533 5.13133,11.46667 11.46667,11.46667h103.2c6.33533,0 11.46667,-5.13133 11.46667,-11.46667v-11.46667c0,-3.45733 -1.5572,-6.52048 -3.97526,-8.62239c2.40932,-2.11217 3.97526,-5.17085 3.97526,-8.57761v-74.53333c0,-6.26689 -5.19977,-11.46667 -11.46667,-11.46667zM34.4,34.4h103.2v74.53333h-103.2zM40.13333,126.13333h57.33333c3.1648,0 5.73333,2.56853 5.73333,5.73333c0,3.1648 -2.56853,5.73333 -5.73333,5.73333h-57.33333c-3.1648,0 -5.73333,-2.56853 -5.73333,-5.73333c0,-3.1648 2.56853,-5.73333 5.73333,-5.73333zM131.86667,126.13333c3.1648,0 5.73333,2.56853 5.73333,5.73333c0,3.1648 -2.56853,5.73333 -5.73333,5.73333c-3.1648,0 -5.73333,-2.56853 -5.73333,-5.73333c0,-3.1648 2.56853,-5.73333 5.73333,-5.73333z"></path></g></g></svg>            
+            </div>
+
+        </div>
+
+        <!--DIV2- CENTER DIV-SONG DURATION SLIDER AND PLAY/PAUSE BUTTONS-->
+        <div class="footer-song-duration-div">
+
+            <div class="playlist-control-div">
+                <!--shuffle-play-icon-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="6" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M129,7.16667v29.33854c-21.02409,3.16341 -35.30143,19.98828 -50.16667,38.07292c-20.07226,22.92774 -40.14453,47.25521 -78.83333,47.25521v14.33333c45.1556,0 70.23893,-29.47851 89.58333,-52.40625c12.96159,-15.42513 24.91537,-29.17057 39.41667,-32.69792v27.77083l43,-35.83333zM0,35.83333v14.33333c27.93881,0 45.82747,12.23372 61.58854,27.99479c2.85547,-3.58333 6.55078,-7.16667 9.40625,-10.75c-17.1888,-17.1888 -38.74479,-31.57813 -70.99479,-31.57813zM129,93.16667v27.77083c-12.98958,-2.93945 -23.54362,-13.63347 -34.48958,-26.42708c-2.85547,3.58333 -6.32682,7.16667 -9.18229,10.75c12.68164,14.58528 25.86719,27.46289 43.67188,30.23438v29.33854l43,-35.83333z"></path></g></g></svg>
+                <!--prev-button-icon-->
+                <i class="fas fa-step-backward"></i>                
+            <!--play/pause button-->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M86,6.88c-43.63156,0 -79.12,35.48844 -79.12,79.12c0,43.63156 35.48844,79.12 79.12,79.12c43.63156,0 79.12,-35.48844 79.12,-79.12c0,-43.63156 -35.48844,-79.12 -79.12,-79.12zM75.68,116.96h-17.2v-61.92h17.2zM113.52,116.96h-17.2v-61.92h17.2z"></path></g></g></svg>                    <!--next-button-icon-->
+
+                <!--next-button-icon-->
+                <i class="fas fa-step-forward"></i>
+                <!--repeat-icon-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="6" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M121.83333,14.33333v28.66667h-71.66667c-23.6556,0 -43,19.3444 -43,43c0,5.01107 0.75586,10.02214 2.91146,14.33333l12.09375,-10.07812c-0.72786,-1.42774 -0.67187,-2.82747 -0.67187,-4.25521c0,-15.76107 12.9056,-28.66667 28.66667,-28.66667h71.66667v28.66667l43,-35.83333zM161.92188,71.66667l-12.09375,10.07813c0,1.42774 0.67188,3.49935 0.67188,4.92708c0,15.76107 -12.9056,28.66667 -28.66667,28.66667h-71.66667v-29.33854l-43,35.83333l43,35.83333v-28.66667h71.66667c23.6556,0 43,-19.3444 43,-43c0,-5.01107 -0.75586,-10.02213 -2.91146,-14.33333z"></path></g></g></svg>
+            </div>
+
+            <div class="song-duration-slider">
+
+                <span>1:12</span>
+                <div class="main-slider">
+                    <div class="song-duration-display-div"></div>
+                </div>
+               <span>3:30</span>
+
+            </div>
+
+        </div>
+
+        <!--DIV3- RIGHTMOST DIV- CONATINING EXTRA SONG CONTROL BUTTONS-->
+        <div class="footer-song-controls">
+            <!--lyrics-icon-->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M114.90462,21.5c-19.38583,-0.129 -35.10749,15.17228 -35.91732,34.32161l-62.96028,75.7819c-2.365,2.84517 -2.16792,7.02837 0.44792,9.6442l14.27734,14.27735c2.61583,2.61583 6.79904,2.81975 9.64421,0.46191l75.94987,-62.98828c19.08483,-0.90299 34.29698,-16.59564 34.15365,-35.93131c-0.14333,-19.1565 -16.43888,-35.43838 -35.59538,-35.56738zM114.66667,35.83333c11.85367,0 21.5,9.64633 21.5,21.5c0,11.42367 -9.00402,20.80853 -20.49219,21.34603l-4.78711,0.22396l-0.19597,0.15397l-17.6787,-17.67871l0.08398,-0.11198l0.20996,-4.8291c0.48733,-11.55983 9.87186,-20.60417 21.36003,-20.60417zM83.8164,72.45052l15.80307,15.80306l-63.35222,52.53223l-5.03906,-5.05306z"></path></g></g></svg>
+            <!--song-queue-icon-->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M5.25182,17.2c-0.91232,0.01792 -1.82311,0.29312 -2.63151,0.80625c-1.62827,1.032 -2.62031,2.90322 -2.62031,4.92708v34.4c0,2.02387 0.99205,3.89508 2.62031,4.92708c0.83707,0.5332 1.78629,0.80625 2.73229,0.80625c0.8772,0 1.76166,-0.22987 2.56432,-0.69427l29.40573,-17.2c1.71427,-1.00333 2.77708,-2.94066 2.77708,-5.03906c0,-2.0984 -1.06828,-4.03573 -2.78828,-5.03906l-29.40573,-17.2c-0.82847,-0.4816 -1.74159,-0.71219 -2.65391,-0.69427zM155.11354,23.03411l-37.1211,7.95052c-5.28613,1.12947 -9.05911,5.80258 -9.05911,11.20911v65.09349c0,11.17427 -34.4,1.83252 -34.4,33.05625c0,5.73333 3.45604,20.17864 19.8763,20.17864c20.18133,0 25.99036,-15.33971 25.99036,-32.36198v-67.7474l34.85911,-7.64817c3.0788,-0.67653 5.27422,-3.40291 5.27422,-6.56198v-18.7901c0,-2.8552 -2.63339,-4.98039 -5.41979,-4.37839zM50.48021,34.4c0.64213,1.82893 1.0862,3.7324 1.0862,5.73333c0,2.00093 -0.4498,3.9044 -1.0862,5.73333h41.25312c3.1648,0 5.73333,-2.56853 5.73333,-5.73333c0,-3.1648 -2.56853,-5.73333 -5.73333,-5.73333zM29.42813,63.06667l-11.97057,6.9987c0.59053,2.53413 2.75818,4.46797 5.47578,4.46797h68.8c3.1648,0 5.73333,-2.56853 5.73333,-5.73333c0,-3.1648 -2.56853,-5.73333 -5.73333,-5.73333zM22.93333,91.73333c-3.1648,0 -5.73333,2.56853 -5.73333,5.73333c0,3.1648 2.56853,5.73333 5.73333,5.73333h68.8c3.1648,0 5.73333,-2.56853 5.73333,-5.73333c0,-3.1648 -2.56853,-5.73333 -5.73333,-5.73333zM22.93333,120.4c-3.1648,0 -5.73333,2.56853 -5.73333,5.73333c0,3.1648 2.56853,5.73333 5.73333,5.73333h40.90599c0.83133,-4.51213 2.30668,-8.30187 4.22161,-11.46667z"></path></g></g></svg>
+            <!--devices-icon-->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M26.875,21.5c-4.40918,0 -8.6084,1.55371 -11.58984,4.53516c-2.98145,2.98145 -4.53516,7.18067 -4.53516,11.58984v64.5c0,4.40918 1.55371,8.6084 4.53516,11.58984c2.98145,2.98145 7.18067,4.53516 11.58984,4.53516h48.375v10.75h-32.25v10.75h64.5v5.375c0,2.98145 2.39355,5.375 5.375,5.375h43c2.98145,0 5.375,-2.39355 5.375,-5.375v-75.25c0,-2.98145 -2.39355,-5.375 -5.375,-5.375h-5.375v-26.875c0,-4.40918 -1.55371,-8.6084 -4.53516,-11.58984c-2.98145,-2.98145 -7.18067,-4.53516 -11.58984,-4.53516zM26.875,32.25h107.5c2.01563,0 3.19141,0.5879 3.98926,1.38574c0.79785,0.79785 1.38574,1.97364 1.38574,3.98926v26.875h-26.875c-2.98145,0 -5.375,2.39355 -5.375,5.375v37.625h-80.625c-2.01562,0 -3.19141,-0.58789 -3.98926,-1.38574c-0.79784,-0.79785 -1.38574,-1.97364 -1.38574,-3.98926v-64.5c0,-2.01562 0.5879,-3.19141 1.38574,-3.98926c0.79785,-0.79784 1.97364,-1.38574 3.98926,-1.38574zM118.25,75.25h32.25v64.5h-32.25zM86,118.25h21.5v10.75h-21.5z"></path></g></g></svg>
+            <!--volume-icon-->
+            <svg class="vol-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M91.375,19.31641l-9.23828,9.07031l-30.73828,30.73828h-24.52344v53.75h24.52344l30.73828,30.73828l9.23828,9.07031zM127.99219,44.00781l-7.55859,7.55859c18.91748,18.91748 18.91748,49.27783 0,68.19531l7.55859,7.72656c23.01172,-23.01172 23.01172,-60.46875 0,-83.48047zM80.625,45.35156v81.29688l-23.01172,-23.01172l-1.67969,-1.51172h-18.30859v-32.25h18.30859l1.67969,-1.51172zM112.37109,59.62891l-7.55859,7.55859c10.26709,10.26709 10.2251,27.27393 -0.16797,38.12891l7.89453,7.55859c14.31934,-14.94922 14.27734,-38.80078 -0.16797,-53.24609z"></path></g></g></svg>
+        
+            <!--VOLUME SLIDER-->
+            <div class="vol-bar">
+                <div class="vol-at-present"></div>
+            </div>
+        
+        </div>
+
+    </footer>
+        
+    </body>
+</html>

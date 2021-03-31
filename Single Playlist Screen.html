@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ninja Studio- Music Player</title>
+        <!--responsive meta tag-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--stylesheets-->
+        <link rel="stylesheet" type="text/css" href="single-playlist-screen.css">
+        <!--responsive stylesheet with media queries-->
+        <link rel="stylesheet" type="text/css" href="resp-sheet-single-playlist.css">
+
+<!--FAVICON-->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+<!--FONT-AWESOME ICON- FOR SONG PLAYER BCOZ IT REQUIRES CUSTOMIZATION LIKE STYLING THE ICONS ON HOVER-->
+<script src="https://kit.fontawesome.com/261ac6d0f6.js" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/7bf505a696.js"></script>
+
+<!--ICONS8-->
+<a href="https://icons8.com/icon/107029/deezer"></a>
+<a href="https://icons8.com/icon/85561/more"></a>
+
+</head>
+<body>
+<!--NAVBAR-->
+    <div id="nav">
+
+        <img src="https://img.icons8.com/nolan/50/playlist.png" class="music-player-icon"/>
+        <a href="index.html"><div class="ninja-studio">Ninja<br><b>Studio</b></div></a>
+
+        <div id="nav-links-div">
+            <!--INTERNAL LINKS in NAV SECTION-->
+        
+        <!--AS OF NOW, ALL 3 OF THEM DIRECT THE USER BACK TO THE HOME PAGE since the mentioned sections are not there on this page
+        so these links just act as dummy links for the navigation bar-->
+        <a href="index.html">Favourites</a>
+        <a href="index.html">Recently Played</a>
+        <a href="index.html">Genres & Moods</a>
+        </div>
+    <!--SEARCH-BAR-->
+        <div id="search-bar-div">
+            <div class="search-bar-placeholder"><img class="search-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABdklEQVRIie3Uu24UQRCF4a9s75JYGIIVCYIAEiZEMlgW0iYE5IiAiBeDFyAjWwMxAgwvYMlcZGRi4wBhLkXQY2m19sw2KzI4aU2dv/pMd/FfcxRdhcwc4DoajDDEId7hbUTsLwzIzIu4hzXsYw8/cA5XcAbb2IqIn32AlQ7zB/iCRxGxN1MfYoxNrOJxH2BppnnQTn6Ah7PmEBFHEfEMEzSZuV4NUDI/iycR8bWvMSJeYRfjzJz16QQ0+Hza5B16rcR0uRYwUn5orY6/HdUChvj+B4Cjqb4qwKFyFWt1fqqvCvAeV9urWKMGiQ+1gDfKIxrPc87MNWxgJyIOqgDt89/GZmbenGN+X8l+q2+QE6siM5dxVzn+rnIVP+GbknnTTj7EMl5GxKQaMAVaV6JanS1hp538RgvrhHQCWsgSLuECBsp++jideWbe6YP0AmqVmbdx6zTIiW26iCLieWauYCMzf0XE0+Na55JaADLBC1z7W57/iH4DqWV2ZO5vQccAAAAASUVORK5CYII=">
+                
+                <input class="search-bar-input" name="search-bar" placeholder="Search for Songs, Artists, Playlists and More">
+                <!--mic-icon-->
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAB5UlEQVRIie2VMWgUURCGv9lbJWI8Q4KVtyDxsNjDmC6ghUUKQRRBsFYsUrkYO9OltjDgRQs7K0FCKrFJEFNoYWdxiblTDtmLVe4kORCV3TcWt1nisuteUAvRv3pv5v3/PzPFPKEPeGOtEoHOAecAUJYEbt9bcxp5XOlT/A0wnEh17ICxubqz8TO+lWcQVZ4UBxgObL2bR8832BlLGkSyc3swOJSZUQ7/DoNfwn+Df8DA3n3xXL8LDB4IB4p31o90o/A2UExlC1sxt9wosn9gC+hWV534fbKDjwDf7K/H44iynFmesrRzNPsOlqPjD6vDShBWAALMxZioMgO0U+Q7oTATNyNhxNGVTAOx5DGAIJ5XbhQB7r8t1e2AU6BP6I1rG1gIhYkHNecdwPR4c0jA61XU04g1k2V5Ff8FylmUxZG10pVZxKRUH2MWtdpuaxG4BDyvrjqTmR0AFMLgGvAJ4fJmpbUwNfo+c99MjzeHdol3jBauJ9+k/gc3XX/CwDN6a3oToWpM4aladn0wEPkin08Yy7oQjWUEaCOcr9ac130ZANw6+WE0CK2HwGTWmx50WUMzNb9+rJmWzf3RblQ2zogxVxFOA5UoXEN5pZb1aL529GWeRt/wXF8919e9cP7+XfTHDb4DmuSZiKa4AEgAAAAASUVORK5CYII=" class="mic-icon"/>
+            </div>
+        </div>
+    <!--NOTIF ICON-->
+    <img class="notif-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACOUlEQVRIibWVy0tUcRTHP+fONEnhTJpIGPaCFpI9NkEFA2MvqCCSFkL0JwRh0sIpcDYqabRKaFcLd0WImwgqbFnRSnMbQTkipY61ycn7bTF3cOZ67zzIvnD53Xte3++B3zkXaoSkS5K+SpqTdLnWvGitgcAjYLf3fhaYBMic/9maz69dcWUdZgjcmVjMmci8TCwCWBXVzcBNoAtIeuYJ4KoZ6u/K3TYYALb5UlfM7M7gm8TDUAJJx4BXwM4Scw7oMLNs+vTyfURfRYHYgFPBP+orDvDEzLJ3U0upjcVtTtiDMgvKVCI4GWB7BuCa0+vTOubm1bm1Jd7vi7dAAkkNwPYA16wXkSw3O93OFpsMqhXWQVMQL7AMMiDhc7UhReohaA6wGdACJrD5kLyaCfaE2I8XmPTiXwmSIfYeANdxRoDfZR7jwOqP3Jgv/lfgHEh6X1Trwxpw1Mw+pVO565geE74NViX1bOhA0omQ4gAR4KmkxNBUYtyRzgEz/iCDj3Kc1PBU00RZB5KiwFvgVAhBEe+AbjPLAqTPLB4xRQ7hynUjkenh142zgVmSBlU7vkvqlbSjkhIrKX4NGKfKAgxAHvgAfAFiwD5gyMyelyrfK2mlDvXVkJPUBuvX9AbQWKfySogDt0oJLmxi8SIulhK0/weCdlgfkoPAYaAT2A/sovB7bPViisuveC6VnH+ABeAbMA98pjAb0zVLkRT3Vnjxu0FSvN6WKhGMBtyUe5tJEPVIFrxnRIWpr4q/h69iTN2ZicYAAAAASUVORK5CYII=">
+
+    <div class="user-img"></div>
+
+    </div>
+<!--NAVBAR-OVER-->
+
+<!--MAIN-CONTENT-DIV-->
+<div id="main-content-div">
+
+     <!--LEFT PANEL OF THE PAGE- ASIDE SECTION-1 OF THE PAGE-->
+        
+     <div id="music-albums-div">
+         <!--SASHA SLOAN MAIN CONTAINER-->
+            <div id="sasha-sloan-div">
+                <!--SASHA-SLOAN-PICTURE-DIV-->
+            <div class="sasha-sloan-cover"></div>
+
+        <!--INFORMATION-DIV ABOUT SASHA SLOAN-->
+        <div id="sasha-sloan-info">
+            
+                <span class="sasha-sloan-name">Sasha Sloan</span>
+                <div class="name-and-followers-div">
+                    <div class="verified-artist">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M86,14.33333c-10.2415,0 -18.91444,5.93072 -23.43864,14.41732c-9.45102,-3.31612 -20.29108,-1.52386 -27.81282,5.99788c-7.52196,7.52196 -9.30742,18.35462 -5.99089,27.80583c-8.4907,4.52523 -14.42432,13.20187 -14.42432,23.44564c0,10.2415 5.93072,18.91444 14.41732,23.43864c-3.31612,9.45102 -1.52386,20.29108 5.99788,27.81282c7.52196,7.52196 18.35462,9.30742 27.80583,5.99089c4.52523,8.4907 13.20187,14.42432 23.44564,14.42432c10.2415,0 18.91444,-5.93072 23.43864,-14.41732c9.45102,3.31612 20.29108,1.52386 27.81282,-5.99788c7.52196,-7.52196 9.30742,-18.35461 5.99089,-27.80582c8.4907,-4.52523 14.42432,-13.20187 14.42432,-23.44564c0,-10.2415 -5.93072,-18.91444 -14.41732,-23.43864c3.31612,-9.45102 1.52386,-20.29108 -5.99788,-27.81282c-7.52196,-7.52196 -18.35461,-9.30742 -27.80582,-5.99089c-4.52523,-8.4907 -13.20187,-14.42432 -23.44564,-14.42432zM86,25.08333c7.50521,0 13.70366,5.07361 15.55111,11.93978c0.44534,1.65158 1.65014,2.99261 3.24475,3.61166c1.59462,0.61905 3.38867,0.44222 4.83174,-0.47625c6.23168,-3.96195 14.54569,-3.28699 20.02328,2.19059c5.47758,5.47759 6.15254,13.79159 2.19059,20.02328c-0.91836,1.44403 -1.09429,3.23905 -0.47376,4.83391c0.62053,1.59486 1.96336,2.79896 3.61617,3.24259c6.86051,1.84397 11.93278,8.0459 11.93278,15.55111c0,7.50521 -5.07361,13.70366 -11.93978,15.55111c-1.65158,0.44534 -2.99261,1.65014 -3.61166,3.24475c-0.61905,1.59462 -0.44222,3.38867 0.47625,4.83174c3.96195,6.23168 3.28699,14.54569 -2.19059,20.02328c-5.47759,5.47758 -13.79159,6.15254 -20.02328,2.19059c-1.44403,-0.91836 -3.23905,-1.09429 -4.83391,-0.47376c-1.59486,0.62053 -2.79896,1.96336 -3.24259,3.61617c-1.84397,6.86051 -8.0459,11.93278 -15.55111,11.93278c-7.50521,0 -13.70366,-5.07361 -15.55111,-11.93978c-0.44534,-1.65158 -1.65014,-2.99261 -3.24475,-3.61166c-1.59462,-0.61905 -3.38867,-0.44222 -4.83174,0.47625c-6.23168,3.96195 -14.54569,3.28699 -20.02328,-2.19059c-5.47758,-5.47759 -6.15254,-13.79159 -2.19059,-20.02328c0.91836,-1.44403 1.09429,-3.23905 0.47376,-4.83391c-0.62053,-1.59486 -1.96336,-2.79896 -3.61617,-3.24259c-6.86051,-1.84397 -11.93278,-8.0459 -11.93278,-15.55111c0,-7.50521 5.07361,-13.70366 11.93978,-15.55111c1.65158,-0.44534 2.99261,-1.65014 3.61166,-3.24475c0.61905,-1.59462 0.44222,-3.38867 -0.47625,-4.83174c-3.96195,-6.23168 -3.28699,-14.54569 2.19059,-20.02328c5.47759,-5.47758 13.79159,-6.15254 20.02328,-2.19059c1.44403,0.91836 3.23905,1.09429 4.83391,0.47376c1.59486,-0.62053 2.79896,-1.96336 3.24259,-3.61617c1.84397,-6.86051 8.0459,-11.93278 15.55111,-11.93278zM112.77002,64.45101c-1.39592,0.04068 -2.72121,0.62301 -3.69531,1.6237l-32.03304,32.03304l-14.11637,-14.11637c-1.34815,-1.40412 -3.35005,-1.96971 -5.23364,-1.47866c-1.88359,0.49105 -3.35456,1.96202 -3.84561,3.84561c-0.49105,1.88359 0.07455,3.88549 1.47866,5.23364l17.91667,17.91667c2.0991,2.09823 5.50149,2.09823 7.60059,0l35.83333,-35.83333c1.58706,-1.54566 2.06336,-3.90666 1.19966,-5.94673c-0.8637,-2.04007 -2.89048,-3.34134 -5.10493,-3.27756z"></path></g></g></svg>
+                        Verified Artist
+                    </div>
+                
+                <div class="monthly-listeners">10,229,082 monthly listeners</div>
+
+            </div>
+            <br>
+
+            <div class="info-about-sasha">
+                <span class="debut-album">Alexandra Artourovna Yatchenko, known professionally as Sasha Sloan, is a 
+                    Russian-American singer and songwriter based in Los Angeles, California. Her debut album “only child” is out now :)
+                </span>
+            </div>
+
+            <!--PLAY AND FOLLOW BUTTON DIV-->
+            <div class="play-and-follow-buttons">
+
+            <div class="play-all-button">Play All</div>
+            <div class="follow-button">Follow</div>
+            </div>
+
+            </div>
+    </div>
+    <!---------SASHA SLOAN DIV DONE------------->
+
+        <!--POPULAR SONGS- HEADING-->
+        <div class="popular-songs-heading">
+            <span>Popular</span>
+            <div class="see-more-div">SEE MORE</div>
+        </div>
+
+        <!--POPULAR SONGS CONTAINER-->
+        <div id="sasha-sloan-songs-container">
+
+            <!--1-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">1</span>
+                <div class="song-cover">
+                    <img src="https://i2.wp.com/www.cultr.com/wp-content/uploads/2020/05/4orjko2axeu41.png?resize=696%2C696&ssl=1">
+                </div>
+
+                <div class="song-name">
+                    <span>I'll Wait</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">3:35</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+            <!--2-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">2</span>
+                <div class="song-cover">
+                    <img src="https://images.genius.com/880fcec633e280d7e93895db9360aca6.640x640x1.jpg">
+                </div>
+
+                <div class="song-name">
+                    <span>Older</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">3:11</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+            <!--3-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">3</span>
+                <div class="song-cover">
+                    <img src="https://a10.gaanacdn.com/images/albums/6/2817506/crop_175x175_2817506.jpg">
+                </div>
+
+                <div class="song-name">
+                    <span>smiling when i die</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">3:26</span>
+
+                     <!--DUMMY-more-icon-->
+                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+            <!--4-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">4</span>
+                <div class="song-cover">
+                    <img src="https://images.genius.com/cff098154220ac0764c7070ee58fdcf0.928x928x1.jpg">
+                </div>
+
+                <div class="song-name">
+                    <span>Matter To You</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">3:37</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+            <!--5-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">5</span>
+                <div class="song-cover">
+                    <img src="https://images.genius.com/24bde7772ee1397d60496bdd0e3132c8.300x300x1.jpg">
+                </div>
+
+                <div class="song-name">
+                    <span>Keep On</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">3:00</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+            
+            <!--6-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">6</span>
+                <div class="song-cover">
+                    <img src="https://cdns-images.dzcdn.net/images/cover/ff5e7f236110d97778124c3a13c34cca/500x500.jpg">
+                </div>
+
+                <div class="song-name">
+                    <span>Hypochondriac</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">3:22</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+            <!--7-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">7</span>
+                <div class="song-cover">
+                    <img src="https://images.genius.com/4173f42751c4d4af1ab86165c7616819.1000x1000x1.png">
+                </div>
+
+                <div class="song-name">
+                    <span>Is It Just Me?</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">2:34</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+            <!--8-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">8</span>
+                <div class="song-cover">
+                    <img src="https://pbs.twimg.com/media/DzDA0MfX4AEkb0y.jpg">
+                </div>
+
+                <div class="song-name">
+                    <span>Normal</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">3:12</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+            <!--9-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">9</span>
+                <div class="song-cover">
+                    <img src="https://i.pinimg.com/originals/aa/96/3f/aa963f22d2dd10a04eb248f562cba122.jpg">
+                </div>
+
+                <div class="song-name">
+                    <span>Runaway</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">3:38</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+            <!--10-->
+            <div class="song-main-div">
+                <!--play-button-VISIBLE ONLY ON HOVERING EACH SONG DIV-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                </svg>
+
+                <span class="numbering">10</span>
+                <div class="song-cover tenth-song">
+                    <img src="https://m.media-amazon.com/images/I/71wgXAL3loL._SS500_.jpg">
+                </div>
+
+                <div class="song-name">
+                    <span>at least i look cool</span>
+                </div>
+
+                <div class="icons-and-duration">
+                    <i class="far fa-heart"></i> <!--like-button-->
+
+                    <span class="song-duration">2:51</span>
+
+                    <!--DUMMY-more-icon-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAUUlEQVQ4je3PIRKAMAxE0RcGxe1QcDxsL4gths4wxdBBgOhXyRe7CZ3O98R1yTlPWJGRImJ/6krGWBUsmEs+tgYHhpcf3qgvTGdjmVtcp/MbDudQH9Tzmv6cAAAAAElFTkSuQmCC">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+<!------------------------------------------------------------------->
+    <!--RIGHT PANEL OF HOME PAGE-->
+    
+
+    <!--LABEL & checkbox FOR 'MORE' BUTTON WHICH APPEARS ON LOW RESOLUTION SCREENS AND IS OTHERWISE HIDDEN-->
+    <label for="more"><i class="fas fa-angle-double-left"></i>&ensp;More</label>
+    <input type="checkbox" id="more">
+
+
+        <!--SONGS QUEUE-->
+             <div id="main-song-queue-div">
+
+                <!--SIMILAR ARTISTS SECTION-->
+
+                <!--section-heading-->
+                <div class="similar-artists-heading">
+                    <span>Similar Artists</span>
+                </div>
+                <!--'see-all' text div-->
+                <div class="see-all-text-div">See All</div>
+
+                <!--DIV CONTAINING THE SIMILAR ARTISTS LIST-->
+                <div class="similar-artists-div">
+                            <!--S-ARTIST-1-->
+                            <div class="s-artist-div">
+                                
+                                <span class="numbering">1</span>
+
+                                <div class="s-artist-cover">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvZg5OSnIRhfvstNFORfBtih_Y0_LX_KVTuQ&usqp=CAU">
+                                </div>
+
+                                <div class="s-artist-info">
+                                    <span>Emily Burns</span>
+                                    <span class="Artist-text">Artist</span>
+                                </div>
+                                <div class="s-artist-icons-div">
+                                    <!--follow icon-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                    width="19" height="19"
+                                    viewBox="0 0 172 172"
+                                    style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g>
+                                    </svg>
+                                    <!--ADDING TOOLTIP FOR 'FOLLOW ICON'-->
+                                    <span class="tooltip-text">Follow</span>
+                                </div>
+
+                            </div>
+
+                            <!--S-ARTIST-2-->
+                            <div class="s-artist-div">
+
+                                <span class="numbering">2</span>
+
+                                <div class="s-artist-cover">
+                                    <img src="data:image/jpeg;base64,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">
+                                </div>
+
+                                <div class="s-artist-info">
+                                    <span>FINNEAS</span>
+                                    <span class="Artist-text">Artist</span>
+                                </div>
+                                <div class="s-artist-icons-div">
+                                    <!--follow icon-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                    width="19" height="19"
+                                    viewBox="0 0 172 172"
+                                    style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g>
+                                    </svg>
+                                    <!--ADDING TOOLTIP FOR 'FOLLOW ICON'-->
+                                    <span class="tooltip-text">Follow</span>
+                                </div>
+
+                            </div>
+
+
+                        <!--S-ARTIST-3-->
+                        <div class="s-artist-div">
+
+                            <span class="numbering">3</span>
+
+                            <div class="s-artist-cover">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbhX3-AClSesyncu9eRYcleLeayJmd643_Qw&usqp=CAU">
+                            </div>
+
+                            <div class="s-artist-info">
+                                <span>Alec Benjamin</span>
+                                <span class="Artist-text">Artist</span>
+                            </div>
+                            <div class="s-artist-icons-div">
+                                <!--follow icon-->
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="19" height="19"
+                                viewBox="0 0 172 172"
+                                style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g>
+                                </svg>
+                               <!--ADDING TOOLTIP FOR 'FOLLOW ICON'-->
+                               <span class="tooltip-text">Follow</span>
+                            </div>
+
+                        </div>
+
+                    <!--S-ARTIST-4-->
+                    <div class="s-artist-div">
+
+                        <span class="numbering">4</span>
+
+                        <div class="s-artist-cover">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1GvzGUnmY4qkt3T9otx9KliSQqbT7LZv2cw&usqp=CAU">
+                        </div>
+
+                        <div class="s-artist-info">
+                            <span>Chelsea Cutler</span>
+                            <span class="Artist-text">Artist</span>
+                        </div>
+                        <div class="s-artist-icons-div">
+                            <!--follow icon-->
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            width="19" height="19"
+                            viewBox="0 0 172 172"
+                            style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g>
+                            </svg>
+                            <!--ADDING TOOLTIP FOR 'FOLLOW ICON'-->
+                            <span class="tooltip-text">Follow</span>
+                        </div>
+
+                    </div>
+
+                <!--S-ARTIST-5-->
+                <div class="s-artist-div">
+
+                    <span class="numbering">5</span>
+
+                    <div class="s-artist-cover">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjJqbXbH8XB9pXsVidZhfKRqIyRVw9KEhopw&usqp=CAU">
+                    </div>
+
+                    <div class="s-artist-info">
+                        <span>AJ Mitchell</span>
+                        <span class="Artist-text">Artist</span>
+                    </div>
+                    <div class="s-artist-icons-div">
+                        <!--follow icon-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        width="19" height="19"
+                        viewBox="0 0 172 172"
+                        style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g>
+                        </svg>
+                        <!--ADDING TOOLTIP FOR 'FOLLOW ICON'-->
+                        <span class="tooltip-text">Follow</span>
+                    </div>
+
+                </div>
+
+                <!--S-ARTIST-6-->
+                <div class="s-artist-div">
+
+                    <span class="numbering">6</span>
+
+                    <div class="s-artist-cover">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkX22LRLWaZqgT4iY27L3bU2H33iiLYyY3JQ&usqp=CAU">
+                    </div>
+
+                    <div class="s-artist-info">
+                        <span>Elina</span>
+                        <span class="Artist-text">Artist</span>
+                    </div>
+                    <div class="s-artist-icons-div">
+                        <!--follow icon-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        width="19" height="19"
+                        viewBox="0 0 172 172"
+                        style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g>
+                        </svg>
+                       <!--ADDING TOOLTIP FOR 'FOLLOW ICON'-->
+                       <span class="tooltip-text">Follow</span>
+                    </div>
+
+                </div>
+
+                <!--S-ARTIST-7-->
+                <div class="s-artist-div">
+
+                    <span class="numbering">7</span>
+
+                    <div class="s-artist-cover">
+                        <img src="https://images.genius.com/fcc6bb834fe80adb1423c9667f92b8f1.1000x1000x1.jpg">
+                    </div>
+
+                    <div class="s-artist-info">
+                        <span>Etham</span>
+                        <span class="Artist-text">Artist</span>
+                    </div>
+                    <div class="s-artist-icons-div">
+                        <!--follow icon-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        width="19" height="19"
+                        viewBox="0 0 172 172"
+                        style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="" fill="none"></path><g fill="#ffffff"><path d="M82.56,30.96v51.6h-51.6v6.88h51.6v51.6h6.88v-51.6h51.6v-6.88h-51.6v-51.6z"></path></g></g></g>
+                        </svg>
+                       <!--ADDING TOOLTIP FOR 'FOLLOW ICON'-->
+                       <span class="tooltip-text">Follow</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!--RECENTLY PLAYED SECTION-->
+
+                <!--SECTION HEADING-->
+                <div class="recently-played-heading">
+                    <span>Recently Played</span>
+                </div>
+                <!--'SEE-ALL' TEXT DIV-->
+                <div class="see-all-text-div">See All</div>
+
+                <!--DIV CONTAINING THE RECENTLY PLAYED SONGS LIST-->
+                <div class="recently-played-div">
+
+                    <!--R-PLAYED-SONG-1-->
+                    <div class="r-played-div">
+
+                        <!--play-button-VISIBLE ONLY ON HOVER-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                        </svg>
+                        <span class="numbering">01</span>
+
+                        <div class="r-played-song-cover">
+                            <img src="data:image/jpeg;base64,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">
+                        </div>
+    
+                        <div class="r-played-song-info">
+                            <span>you broke me first</span>
+                            <span class="r-played-artist-name">Tate McRae</span>
+                        </div>
+                        <div class="r-played-icons-div">
+                            <i class="far fa-heart"></i> <!--like-button-->
+                        </div>
+    
+                    </div>
+
+                    <!--R-PLAYED-SONG-2-->
+                    <div class="r-played-div">
+                        <!--pause button- VISIBLE ONLY ON HOVER-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M46.30769,33.07692c-3.64363,0 -6.61538,2.97176 -6.61538,6.61538v92.61538c0,3.64363 2.97176,6.61538 6.61538,6.61538h19.84615c3.64363,0 6.61538,-2.97176 6.61538,-6.61538v-92.61538c0,-3.64363 -2.97176,-6.61538 -6.61538,-6.61538zM105.84615,33.07692c-3.64363,0 -6.61538,2.97176 -6.61538,6.61538v92.61538c0,3.64363 2.97176,6.61538 6.61538,6.61538h19.84615c3.64363,0 6.61538,-2.97176 6.61538,-6.61538v-92.61538c0,-3.64363 -2.97176,-6.61538 -6.61538,-6.61538z"></path></g></g>
+                        </svg>
+
+                        <span class="numbering">
+                            <img src="https://img.icons8.com/nolan/18/deezer.png"/>
+                        </span>
+    
+                        <div class="r-played-song-cover specialcover">
+                            <img src="https://1.bp.blogspot.com/-tVkhJ9FJrQ4/YFMYp0dLseI/AAAAAAAARd8/Y8XUZ9hEZZwXfrA0ezkypMsKbhRRTX31gCLcBGAsYHQ/s500/Seori-Lovers-in-the-night.jpg">
+                        </div>
+    
+                        <div class="r-played-song-info special">
+                            <span>Lovers In The Night</span>
+                            <span class="r-played-artist-name">Seori</span>
+                        </div>
+                        <div class="r-played-icons-div">
+                            <i class="far fa-heart"></i> <!--like-button-->
+                        </div>
+    
+                    </div>
+
+                    <!--R-PLAYED-SONG-3-->
+                    <div class="r-played-div">
+
+                        <!--play-button-VISIBLE ONLY ON HOVER-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                        </svg>
+                        <span class="numbering">03</span>
+
+                        <div class="r-played-song-cover">
+                            <img src="data:image/jpeg;base64,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">
+                        </div>
+    
+                        <div class="r-played-song-info">
+                            <span>(L)only Child</span>
+                            <span class="r-played-artist-name">salem ilese</span>
+                        </div>
+                        <div class="r-played-icons-div">
+                            <i class="far fa-heart"></i> <!--like-button-->
+                        </div>
+
+                    </div>
+
+                    <!--R-PLAYED-SONG-4-->
+                    <div class="r-played-div">
+
+                        <!--play-button-VISIBLE ONLY ON HOVER-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                        </svg>
+                        <span class="numbering">04</span>
+
+                        <div class="r-played-song-cover">
+                            <img src="data:image/jpeg;base64,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">
+                        </div>
+    
+                        <div class="r-played-song-info">
+                            <span>Go Slower</span>
+                            <span class="r-played-artist-name">Damma Beatz</span>
+                        </div>
+                        <div class="r-played-icons-div">
+                            <i class="far fa-heart"></i> <!--like-button-->
+                        </div>
+    
+                    </div>
+
+                    <!--R-PLAYED-SONG-5-->
+                    <div class="r-played-div">
+
+                        <!--play-button-VISIBLE ONLY ON HOVER-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                        </svg>
+                        <span class="numbering">05</span>
+                        
+                        <div class="r-played-song-cover">
+                            <img src="data:image/jpeg;base64,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">
+                        </div>
+    
+                        <div class="r-played-song-info">
+                            <span>Let Me Down Slowly</span>
+                            <span class="r-played-artist-name">Alec Benjamin</span>
+                        </div>
+                        <div class="r-played-icons-div">
+                            <i class="far fa-heart"></i> <!--like-button-->
+                        </div>
+    
+                    </div>
+    
+                    <div class="r-played-div">
+
+                        <!--play-button-VISIBLE ONLY ON HOVER-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                        </svg>
+                        <span class="numbering">06</span>
+                        
+                        <div class="r-played-song-cover">
+                            <img src="https://images.genius.com/c89ced664734c7e46da3f827db2818f0.1000x1000x1.png">
+                        </div>
+    
+                        <div class="r-played-song-info">
+                            <span>Tightrope</span>
+                            <span class="r-played-artist-name">ZAYN</span>
+                        </div>
+                        <div class="r-played-icons-div">
+                            <i class="far fa-heart"></i> <!--like-button-->
+                        </div>
+    
+                    </div>
+
+                    <div class="r-played-div">
+
+                        <!--play-button-VISIBLE ONLY ON HOVER-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                        </svg>
+                        <span class="numbering">07</span>
+                        
+                        <div class="r-played-song-cover">
+                            <img src="https://images.genius.com/3d0eb0de705d2a99667cdce3a8094702.640x640x1.jpg">
+                        </div>
+    
+                        <div class="r-played-song-info">
+                            <span>firefly</span>
+                            <span class="r-played-artist-name">Jeremy Zucker</span>
+                        </div>
+                        <div class="r-played-icons-div">
+                            <i class="far fa-heart"></i> <!--like-button-->
+                        </div>
+    
+                    </div>
+
+                    <div class="r-played-div">
+
+                        <!--play-button-VISIBLE ONLY ON HOVER-->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M57.33333,48.891v74.22517c0,5.6545 6.24217,9.08017 11.01517,6.04867l58.31517,-37.109c4.429,-2.8165 4.429,-9.27367 0,-12.09017l-58.31517,-37.12333c-4.773,-3.03867 -11.01517,0.39417 -11.01517,6.04867z"></path></g></g>
+                        </svg>
+                        <span class="numbering">08</span>
+                        
+                        <div class="r-played-song-cover">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Moral_of_the_Story_-_Ashe.jpg/220px-Moral_of_the_Story_-_Ashe.jpg">
+                        </div>
+    
+                        <div class="r-played-song-info">
+                            <span>Moral Of The Story</span>
+                            <span class="r-played-artist-name">Ashe</span>
+                        </div>
+                        <div class="r-played-icons-div">
+                            <i class="far fa-heart"></i> <!--like-button-->
+                        </div>
+    
+                    </div>
+
+                </div>
+
+             </div>
+        <!--SONG-QUEUE-OVER-->
+        
+        
+    </div> <!--MAIN-CONTENT-DIV CLOSED--> 
+<!------------------------------------------------------>
+
+<!--FOOTER-->
+    <!--SONG-PLAYER IN FOOTER-->
+
+        <!--can add it in main content div as well, it will get wrapped by flex in next row-->
+        <footer id="footer-song-player">
+
+            <!--LEFTMOST DIV- SONG NAME AND SONG COVER-->
+            <div class="footer-song-info">
+    
+                <div class="song-cover-footer">
+                    <img src="https://images.genius.com/71f8915b1e4a54f72fd3ba26f97f7cd5.440x440x1.jpg">
+                </div>
+    
+                <div class="song-info-footer">
+                    <b>Lovers In The Night</b> <br>
+                    <span>Seori</span>
+                </div>
+    
+                <div class="like-icon-footer">
+                    <i class="far fa-heart"></i> <!--like-button-->
+                    <!-- this 'svg' is for song-cover-enlarge-button, can use it as a button for real using JS to enlarge the song cover-->
+                    <svg class="enlarge-cover" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M34.4,22.93333c-6.26689,0 -11.46667,5.19977 -11.46667,11.46667v74.53333c0,3.40676 1.56594,6.46543 3.97526,8.57761c-2.41806,2.10191 -3.97526,5.16507 -3.97526,8.62239v11.46667c0,6.33533 5.13133,11.46667 11.46667,11.46667h103.2c6.33533,0 11.46667,-5.13133 11.46667,-11.46667v-11.46667c0,-3.45733 -1.5572,-6.52048 -3.97526,-8.62239c2.40932,-2.11217 3.97526,-5.17085 3.97526,-8.57761v-74.53333c0,-6.26689 -5.19977,-11.46667 -11.46667,-11.46667zM34.4,34.4h103.2v74.53333h-103.2zM40.13333,126.13333h57.33333c3.1648,0 5.73333,2.56853 5.73333,5.73333c0,3.1648 -2.56853,5.73333 -5.73333,5.73333h-57.33333c-3.1648,0 -5.73333,-2.56853 -5.73333,-5.73333c0,-3.1648 2.56853,-5.73333 5.73333,-5.73333zM131.86667,126.13333c3.1648,0 5.73333,2.56853 5.73333,5.73333c0,3.1648 -2.56853,5.73333 -5.73333,5.73333c-3.1648,0 -5.73333,-2.56853 -5.73333,-5.73333c0,-3.1648 2.56853,-5.73333 5.73333,-5.73333z"></path></g></g></svg>            
+                </div>
+    
+            </div>
+    
+            <!--CENTER DIV- SONG DURATION AND MAIN CONTROL BUTONS-->
+            <div class="footer-song-duration-div">
+    
+                <div class="playlist-control-div">
+                    <!--shuffle-play-icon-->
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="6" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M129,7.16667v29.33854c-21.02409,3.16341 -35.30143,19.98828 -50.16667,38.07292c-20.07226,22.92774 -40.14453,47.25521 -78.83333,47.25521v14.33333c45.1556,0 70.23893,-29.47851 89.58333,-52.40625c12.96159,-15.42513 24.91537,-29.17057 39.41667,-32.69792v27.77083l43,-35.83333zM0,35.83333v14.33333c27.93881,0 45.82747,12.23372 61.58854,27.99479c2.85547,-3.58333 6.55078,-7.16667 9.40625,-10.75c-17.1888,-17.1888 -38.74479,-31.57813 -70.99479,-31.57813zM129,93.16667v27.77083c-12.98958,-2.93945 -23.54362,-13.63347 -34.48958,-26.42708c-2.85547,3.58333 -6.32682,7.16667 -9.18229,10.75c12.68164,14.58528 25.86719,27.46289 43.67188,30.23438v29.33854l43,-35.83333z"></path></g></g></svg>
+                    <!--prev-button-icon-->
+                    <i class="fas fa-step-backward"></i>                
+                <!--play/pause button-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M86,6.88c-43.63156,0 -79.12,35.48844 -79.12,79.12c0,43.63156 35.48844,79.12 79.12,79.12c43.63156,0 79.12,-35.48844 79.12,-79.12c0,-43.63156 -35.48844,-79.12 -79.12,-79.12zM75.68,116.96h-17.2v-61.92h17.2zM113.52,116.96h-17.2v-61.92h17.2z"></path></g></g></svg>                    <!--next-button-icon-->
+                <!--next-button-icon-->   
+                <i class="fas fa-step-forward"></i>
+                    <!--repeat-icon-->
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="6" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M121.83333,14.33333v28.66667h-71.66667c-23.6556,0 -43,19.3444 -43,43c0,5.01107 0.75586,10.02214 2.91146,14.33333l12.09375,-10.07812c-0.72786,-1.42774 -0.67187,-2.82747 -0.67187,-4.25521c0,-15.76107 12.9056,-28.66667 28.66667,-28.66667h71.66667v28.66667l43,-35.83333zM161.92188,71.66667l-12.09375,10.07813c0,1.42774 0.67188,3.49935 0.67188,4.92708c0,15.76107 -12.9056,28.66667 -28.66667,28.66667h-71.66667v-29.33854l-43,35.83333l43,35.83333v-28.66667h71.66667c23.6556,0 43,-19.3444 43,-43c0,-5.01107 -0.75586,-10.02213 -2.91146,-14.33333z"></path></g></g></svg>
+                </div>
+
+                
+                <!--SONG DURATION SLIDER CONTAINER-->
+                <div class="song-duration-slider">
+    
+                    <span>1:12</span>
+                    <div class="main-slider">
+                        <div class="song-duration-display-div"></div>
+                    </div>
+                   <span>3:30</span>
+    
+                </div>
+    
+            </div>
+    
+            <!--RIGHTMOST DIV- SONG CONTROLS-->
+            <div class="footer-song-controls">
+                <!--lyrics-icon-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M114.90462,21.5c-19.38583,-0.129 -35.10749,15.17228 -35.91732,34.32161l-62.96028,75.7819c-2.365,2.84517 -2.16792,7.02837 0.44792,9.6442l14.27734,14.27735c2.61583,2.61583 6.79904,2.81975 9.64421,0.46191l75.94987,-62.98828c19.08483,-0.90299 34.29698,-16.59564 34.15365,-35.93131c-0.14333,-19.1565 -16.43888,-35.43838 -35.59538,-35.56738zM114.66667,35.83333c11.85367,0 21.5,9.64633 21.5,21.5c0,11.42367 -9.00402,20.80853 -20.49219,21.34603l-4.78711,0.22396l-0.19597,0.15397l-17.6787,-17.67871l0.08398,-0.11198l0.20996,-4.8291c0.48733,-11.55983 9.87186,-20.60417 21.36003,-20.60417zM83.8164,72.45052l15.80307,15.80306l-63.35222,52.53223l-5.03906,-5.05306z"></path></g></g></svg>
+                <!--song-queue-icon-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M5.25182,17.2c-0.91232,0.01792 -1.82311,0.29312 -2.63151,0.80625c-1.62827,1.032 -2.62031,2.90322 -2.62031,4.92708v34.4c0,2.02387 0.99205,3.89508 2.62031,4.92708c0.83707,0.5332 1.78629,0.80625 2.73229,0.80625c0.8772,0 1.76166,-0.22987 2.56432,-0.69427l29.40573,-17.2c1.71427,-1.00333 2.77708,-2.94066 2.77708,-5.03906c0,-2.0984 -1.06828,-4.03573 -2.78828,-5.03906l-29.40573,-17.2c-0.82847,-0.4816 -1.74159,-0.71219 -2.65391,-0.69427zM155.11354,23.03411l-37.1211,7.95052c-5.28613,1.12947 -9.05911,5.80258 -9.05911,11.20911v65.09349c0,11.17427 -34.4,1.83252 -34.4,33.05625c0,5.73333 3.45604,20.17864 19.8763,20.17864c20.18133,0 25.99036,-15.33971 25.99036,-32.36198v-67.7474l34.85911,-7.64817c3.0788,-0.67653 5.27422,-3.40291 5.27422,-6.56198v-18.7901c0,-2.8552 -2.63339,-4.98039 -5.41979,-4.37839zM50.48021,34.4c0.64213,1.82893 1.0862,3.7324 1.0862,5.73333c0,2.00093 -0.4498,3.9044 -1.0862,5.73333h41.25312c3.1648,0 5.73333,-2.56853 5.73333,-5.73333c0,-3.1648 -2.56853,-5.73333 -5.73333,-5.73333zM29.42813,63.06667l-11.97057,6.9987c0.59053,2.53413 2.75818,4.46797 5.47578,4.46797h68.8c3.1648,0 5.73333,-2.56853 5.73333,-5.73333c0,-3.1648 -2.56853,-5.73333 -5.73333,-5.73333zM22.93333,91.73333c-3.1648,0 -5.73333,2.56853 -5.73333,5.73333c0,3.1648 2.56853,5.73333 5.73333,5.73333h68.8c3.1648,0 5.73333,-2.56853 5.73333,-5.73333c0,-3.1648 -2.56853,-5.73333 -5.73333,-5.73333zM22.93333,120.4c-3.1648,0 -5.73333,2.56853 -5.73333,5.73333c0,3.1648 2.56853,5.73333 5.73333,5.73333h40.90599c0.83133,-4.51213 2.30668,-8.30187 4.22161,-11.46667z"></path></g></g></svg>
+                <!--devices-icon-->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M26.875,21.5c-4.40918,0 -8.6084,1.55371 -11.58984,4.53516c-2.98145,2.98145 -4.53516,7.18067 -4.53516,11.58984v64.5c0,4.40918 1.55371,8.6084 4.53516,11.58984c2.98145,2.98145 7.18067,4.53516 11.58984,4.53516h48.375v10.75h-32.25v10.75h64.5v5.375c0,2.98145 2.39355,5.375 5.375,5.375h43c2.98145,0 5.375,-2.39355 5.375,-5.375v-75.25c0,-2.98145 -2.39355,-5.375 -5.375,-5.375h-5.375v-26.875c0,-4.40918 -1.55371,-8.6084 -4.53516,-11.58984c-2.98145,-2.98145 -7.18067,-4.53516 -11.58984,-4.53516zM26.875,32.25h107.5c2.01563,0 3.19141,0.5879 3.98926,1.38574c0.79785,0.79785 1.38574,1.97364 1.38574,3.98926v26.875h-26.875c-2.98145,0 -5.375,2.39355 -5.375,5.375v37.625h-80.625c-2.01562,0 -3.19141,-0.58789 -3.98926,-1.38574c-0.79784,-0.79785 -1.38574,-1.97364 -1.38574,-3.98926v-64.5c0,-2.01562 0.5879,-3.19141 1.38574,-3.98926c0.79785,-0.79784 1.97364,-1.38574 3.98926,-1.38574zM118.25,75.25h32.25v64.5h-32.25zM86,118.25h21.5v10.75h-21.5z"></path></g></g></svg>
+                <!--volume-icon-->
+                <svg class="vol-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill-opacity="0.5" fill="#ffffff"><path d="M91.375,19.31641l-9.23828,9.07031l-30.73828,30.73828h-24.52344v53.75h24.52344l30.73828,30.73828l9.23828,9.07031zM127.99219,44.00781l-7.55859,7.55859c18.91748,18.91748 18.91748,49.27783 0,68.19531l7.55859,7.72656c23.01172,-23.01172 23.01172,-60.46875 0,-83.48047zM80.625,45.35156v81.29688l-23.01172,-23.01172l-1.67969,-1.51172h-18.30859v-32.25h18.30859l1.67969,-1.51172zM112.37109,59.62891l-7.55859,7.55859c10.26709,10.26709 10.2251,27.27393 -0.16797,38.12891l7.89453,7.55859c14.31934,-14.94922 14.27734,-38.80078 -0.16797,-53.24609z"></path></g></g></svg>
+            
+                <!--VOLUME SLIDER-->
+                <div class="vol-bar">
+                    <div class="vol-at-present"></div>
+                </div>
+            
+            </div>
+    
+        </footer>
+
+</body>
+</html>

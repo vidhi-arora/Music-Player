@@ -1,0 +1,444 @@
+@media screen and (max-width: 1540px){
+    #nav-links-div{
+        margin-left: 2rem;
+    }
+    #nav-links-div a{
+        font-size: 0.9rem;
+        letter-spacing: 0.1rem;
+        padding: 0.4rem;
+    }
+    #search-bar-div{
+        margin-left: 3rem;
+    }
+}
+@media screen and (max-width: 1420px){
+    .s-artist-cover{
+        margin-right: 0.8rem;
+    }
+    .song-info-footer{
+        font-size: 0.95rem;
+        font-weight: normal;
+    }
+    .song-info-footer>span{
+        font-size: 0.85rem;
+    }
+}
+@media screen and (max-width: 1400px){
+    .s-artist-cover, .r-played-song-cover{
+        margin-right: 0.5rem;
+    }
+    #search-bar-div{
+        margin-left: 1.5rem;
+    }
+    .sasha-sloan-name{
+        font-size: 2.2rem;
+    }
+    .verified-artist{
+        font-size: 1.1rem;
+    }
+    .play-all-button{
+        width: 6rem;
+        height: 2.1rem;
+        font-size: 1.1rem;
+    }
+    .follow-button{
+        width: 5.8rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+    .search-bar-input{
+        width: 12rem;
+    }
+    .footer-song-info{
+        width: 25%;
+    }
+    /*MAIN SONG QUEUE DIV- SECTION 2*/
+    #main-song-queue-div{
+        width: 30%;
+    }
+}
+@media screen and (max-width: 1300px){
+    .r-played-song-cover{
+        margin-right: 0.4rem;
+    }
+    .r-played-song-info{
+        font-size: 0.8rem;
+    }
+    
+}
+@media screen and (max-width: 1284px){
+    .search-bar-input{
+        width: 8rem;
+    }
+    #nav-links-div{
+        margin-left: 0.5rem;
+    }
+    #nav-links-div a{
+        padding: 0.2rem;
+    }
+    .play-all-button{
+        width: 5.4rem;
+        height: 2.05rem;
+    }
+    .follow-button{
+        width: 5.3rem;
+        height: 2rem;
+    }
+    .enlarge-cover{
+        display: none;
+    }
+    .footer-song-info{
+        width: 25%;
+    }
+    /*MAIN SONG QUEUE DIV- SECTION 2*/
+    #main-song-queue-div{
+        width: 33%;
+    }
+}
+@media screen and (max-width: 1140px){
+    #nav-links-div a{
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+    #nav-links-div{
+        margin-left: 1rem;
+    }
+    #search-bar-div{
+        margin-left: 1rem;
+    }
+    .search-bar-input{
+        width: 7rem;
+    }
+    /*sasha sloan div*/
+    #sasha-sloan-div{
+        height: 25vw;
+    }
+    .play-all-button{
+        width: 5rem;
+        height: 2rem;
+        font-size: 1rem;
+        margin-right: 1rem;
+    }
+    .follow-button{
+        width: 5rem;
+        height: 1.9rem;
+        font-size: 0.9rem;
+    }
+    .sasha-sloan-name{
+        font-size: 2rem;
+    }
+    .verified-artist{
+        font-size: 1rem;
+    }
+    .monthly-listeners{
+        font-size: 0.9rem;
+    }
+    .info-about-sasha{
+        margin-top: 0.5rem;
+        line-height: normal;
+    }
+    /*incresed the width of main song queue div so that elements are visible clearly*/
+    #main-song-queue-div{
+        width: 35%;
+        margin-left: 5rem;
+    }
+}
+
+/*hiding the navigation links in nav section now as they are not needed and are taking up space because of which page is getting messy*/
+@media screen and (max-width: 1100px){
+    #nav-links-div{
+        display: none;
+    }
+    .search-bar-input{
+        width: 19rem;
+    }
+    #search-bar-div{
+        margin-left: 5rem;
+        margin-right: 7rem;
+    }
+    /*increasing the width of both the sections of the main content div so that the contents are clearly visible*/
+    .music-albums-div{
+        width: 75%;
+    }
+    #main-song-queue-div{
+        margin-right: 1rem;
+        margin-left: 4rem;
+        width: 29%;
+    }
+    .info-about-sasha{
+        line-height: normal;
+    }
+    
+}
+@media screen and (max-width: 1072px){
+    .search-bar-input{
+        width: 14rem;
+    }
+    #search-bar-div{
+        margin-left: 4rem;
+        margin-right: 10rem;
+    }
+    /*hiding the vol icon and the volume bar since the devices with this resolution usually have physical volume controls on the side of device*/
+    .vol-icon{
+        display: none;
+    }
+    .vol-bar{
+        display: none;
+    }
+    /*hiding the section 2 of the main content div i.e the song queue and it will be visible on clicking the more button*/
+    label[for="more"]{
+        display: inline-block;
+    }
+    #main-song-queue-div{
+        display: none;
+    }
+    
+    /*click the more button to view section-2 i.e song queue*/
+    #more:checked ~#main-song-queue-div{
+        display: inline-block;
+        z-index: 4;
+        width: 33%;
+        position: absolute;
+        top: 10%;
+        right: 0%;
+    }
+    /*CHANGES IN FOOTER*/
+    .footer-song-info{
+        width: 25%;
+    }
+    .footer-song-controls{
+        width: 15%;
+    }
+    .song-cover-footer{
+        width: 3rem;
+        height: 3rem;
+    }
+    .song-info-footer{
+        font-size: 0.8rem;
+    }
+    .song-info-footer>span{
+        font-size: 0.75rem;
+    }
+    /* CHANGES IN SEARCHBAR*/
+    #search-bar-div{
+        width: 33rem !important;
+        margin: 0rem 2rem !important;
+    }
+    .search-bar-input{
+        width: 20rem;
+    }
+    /* CHANGES IN SASHA SLOAN INFO DIV*/
+    .sasha-sloan-name{
+        font-size: 1.5rem;
+        margin-top: 0.2rem;
+    }
+    .verified-artist{
+        font-size: 0.85rem;
+    }
+    .monthly-listeners{
+        font-size: 0.8rem;
+    }
+    .info-about-sasha{
+        font-size: 0.9rem;
+    }
+    .play-all-button{
+        width: 4.2rem;
+        height: 1.8rem;
+        font-size: 0.95rem;
+        margin-right: 1rem;
+    }
+    .follow-button{
+        width: 3.9rem;
+        height: 1.7rem;
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width: 960px){
+    #search-bar-div{
+        width: 24rem !important;
+        margin: 0rem 0rem 0rem 3rem !important;
+    }
+    .search-bar-input{
+        width: 11rem;
+    }
+    /*PLAY ALL AND FOLLOW BUTTON*/
+    .play-and-follow-buttons{
+        width: 50%;
+    }
+    .play-all-button{
+        width: 4.6rem;
+        font-size: 0.9rem;
+    }
+    .follow-button{
+        font-size: 0.8rem;
+    }
+    /*decreasing the width of the song slider*/
+    .main-slider{
+        width: 80%;
+    }
+    .footer-song-info{
+        width: 32%;
+    }
+    /*readjusting the heights of sasha sloan div and popular songs div as sasha sloan div's info is otherwise not clearly readable*/
+    #sasha-sloan-div{
+        height: 25vw;
+    }
+    .info-about-sasha{
+        margin-left: 0.98rem;
+        font-size: 0.85rem;
+    }
+    .monthly-listeners{
+        margin-right: 0.8rem;
+    }
+    /*increasing the width of section-2 that opens on clciking the more button for better visibility*/
+    #more:checked ~#main-song-queue-div{
+        width: 41%;
+    }
+}
+@media screen and (max-width: 780px){
+    #search-bar-div{
+        width: 20rem !important;
+        margin-left: 2rem !important;
+    }
+    .search-bar-input{
+        width: 7rem;
+    }
+    /*adjusting the logo and logo text*/
+    .music-player-icon{
+        width: 3.9rem;
+    }
+    .ninja-studio{
+        font-size: 1.1rem;
+    }
+    /*SASHA SLOAN DIV*/
+    #sasha-sloan-div{
+        height: 32vw;
+    }
+    .play-and-follow-buttons{
+        width: 60%;
+    }
+    .info-about-sasha{
+        font-size: 0.8rem;
+    }
+    .monthly-listeners{
+        font-size: 0.76rem;
+    }
+    /*song main slider in footer*/
+    .main-slider{
+        width: 77%;
+    }
+    .footer-song-info{
+        width: 35%;
+        font-size: 0.85rem;
+    }
+    /*popular songs container*/
+    .song-cover{
+        margin: 0rem 0.5rem 0rem 0.8rem;
+    }
+    .song-name{
+        font-size: 1rem;
+    }
+    .icons-and-duration{
+        width: 5rem;
+        margin-right: 1.5rem;
+    }
+
+    /*increasing the width of section-2 that opens on clciking the more button for better visibility*/
+    #more:checked ~#main-song-queue-div{
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 668px){
+    #search-bar-div{
+        width: 15rem !important;
+        margin-left: 2rem !important;
+    }
+    .search-bar-input{
+        width: 2rem;
+    }
+    .notif-icon{
+        padding-left: 1rem;
+    }
+    .user-img{
+        width: 2.2rem;
+        height: 2.2rem;
+        margin-left: 1.5rem;
+    }
+    /*adjusting the logo and logo text*/
+    .music-player-icon{
+        width: 3.6rem;
+    }
+    .ninja-studio{
+        font-size: 1rem;
+    }
+    /*SASHA SLOAN DIV*/
+    #sasha-sloan-div{
+        height: 40vw;
+    }
+    .play-and-follow-buttons{
+        width: 70%;
+    }
+
+    /*hiding the duration of songs in popular songs section as at this resolution it's not needed*/
+    .song-duration{
+        display: none;
+    }
+    .icons-and-duration{
+        width: 4rem;
+        margin-right: 0rem;
+    }
+    /*increasing the width of section-2 that opens on clciking the more button for better visibility*/
+    #more:checked ~#main-song-queue-div{
+        width: 60%;
+    }
+
+    /*IMPORTANT- at this screen resolution the song duration slider is not shown on the devices instead only song name and song controls are visible
+    SO SONG DURATION SLIDER IS HIDDEN FOR THIS SCREEN RESOLUTION--> and width of other two sections in footer is increased*/
+    .footer-song-duration-div{
+        display: none;
+    }
+    .footer-song-info{
+        width: 70%;
+        font-size: 1.5rem !important;
+    }
+    .footer-song-info>span{
+        font-size: 1.2rem !important;
+    }
+    .footer-song-info .song-cover{
+        width: 5rem;
+        height: 5rem;
+    }
+    .footer-song-controls{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    /*hiding the like button in popular songs section as it's not needed because it's already present in footer at this screen resolution*/
+    .icons-and-duration .fa-heart{
+        display: none;
+    }
+    /*SASHA SLOAN DIV*/
+    #sasha-sloan-div{
+        height: 50vw;
+    }
+    .play-and-follow-buttons{
+        width: 77%;
+    }
+    /*hiding the notification icon and user account image in navigation bar as it's not present at this resolution in devices normally*/
+    .notif-icon{
+        display: none;
+    }
+    .user-img{
+        display: none;
+    }
+    /*popular song names*/
+    .song-name{
+    font-size: 0.9rem;
+    }
+    /*increasing the width of section-2 that opens on clciking the more button for better visibility*/
+    #more:checked ~#main-song-queue-div{
+        width: 65%;
+    }
+}

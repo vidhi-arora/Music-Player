@@ -1,0 +1,527 @@
+@media screen and (max-width: 1515px){
+    #nav-links-div{
+        margin-left: 1.2rem;
+    }
+    #search-bar-div{
+        margin-left: 2rem;
+    }
+    .search-bar-input{
+        width: 17rem;
+    }
+    .main-slider{
+        width: 82%;
+    }
+}
+@media screen and (max-width: 1412px){
+    #main-song-queue-div{
+        width: 28%;
+    }
+    /*navigation section*/
+    /*adjusting the logo and logo text*/
+    .music-player-icon{
+        width: 4.4rem;
+    }
+    .ninja-studio{
+        font-size: 1.4rem;
+    }
+    #search-bar-div{
+        margin-left: 3rem;
+    }
+    .search-bar-input{
+        width: 17rem;
+    }
+    #nav-links-div{
+        margin-left: 0.5rem;
+    }
+    #nav-links-div a{
+        padding: 0.3rem;
+        font-size: 0.8rem;
+    }
+    .user-img{
+        margin-left: 1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    /*HOME SCREEN CAROUSEL*/
+    .home-screens{
+        width: 14.5rem;
+        height: 14rem;
+    }
+    /*NEW RELEASES SECTION*/
+    .latest-releases-song-div{
+        width: 24.5rem;
+    }
+    .latest-song-cover{
+        width: 4.2rem;
+        height: 4.2rem;
+    }
+    .latest-song-name-info{
+        width: 10.5rem;
+        font-size: 1rem;
+    }
+    .latest-song-name-info>span{
+        font-size: 0.75rem;
+    }
+    
+    .artist-image{
+        width: 5.4rem;
+        height: 5.4rem;
+    }
+    /*POPULAR ARTIST SECTION*/
+    .popular-artist-cover-div>span{
+        font-size: 1rem;
+    }
+    .play-now{
+        position: absolute;
+        top: 2.2rem;
+        left: 2.4rem;
+    }
+    /*MOOD-RADIO-SECTION*/
+    #mood-radio-div{
+        height: 12.5rem; 
+    }
+    #mood-radio-div{
+        left: 1.5rem;
+    }
+    #mood-radio-label-div{
+        padding: 0.4rem;
+        left: 2rem;
+        top: 1.4rem;
+    }
+    .lower-div{
+        width: 10rem;
+        height: 2.8rem;
+    }
+    .middle-div{
+        width: 9rem;
+        height: 4.8rem;
+    }
+    .upper-div{
+        width: 8rem;
+        height: 6.8rem;
+    }
+    .mood-radio-label-name{
+        width: 8.8rem;
+        height: 5.8rem;
+    }
+    .mood-radio-label-name>span{
+        font-size: 0.9rem;
+    }
+
+    .genre-circle-div{
+        width: 3rem;
+        height: 3rem;
+    }
+    .genre-text{
+        font-size: 0.7rem;
+        position: absolute;
+        left: 2.2rem;
+        top: 1.2rem;
+    }
+    .special{
+        left: 1.7rem;
+    }
+
+    #square-genre-container{
+        width: 7rem;
+        height: 5rem;
+    }
+    .sqgenre-text{
+        font-size: 1rem;
+        position: absolute;
+        top: 2.3rem;
+        left: 2.3rem;
+    }
+    .special2{
+        left: 1.4rem;
+    }
+    /*FOOTER*/
+    /*song main slider in footer*/
+    .main-slider{
+        width: 80%;
+    }
+    .enlarge-cover{
+        display: none;
+    }
+    .footer-song-info{
+        width: 28%;
+    }
+}
+@media screen and (max-width: 1360px){
+    /*HOME SCREEN CAROUSEL*/
+    .home-screens{
+        width: 14rem;
+        height: 13.5rem;
+    }
+    /*NEW RELEASES SECTION*/
+    .latest-releases-song-div{
+        width: 22.5rem;
+    }
+    .latest-song-cover{
+        width: 4rem;
+        height: 4rem;
+    }
+    .latest-song-name-info{
+        width: 8rem;
+        font-size: 1rem;
+    }
+    .latest-song-name-info>span{
+        font-size: 0.75rem;
+    }
+    /*latest english/hindi-songs section*/
+    .eng-song-name{
+        font-size: 1.05rem;
+    }
+    .eng-song-artist-name{
+        font-size: 0.9rem;
+    }
+    .new span{
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 1280px){
+    #main-song-queue-div{
+        width: 28%;
+    }
+    /*navigation section*/
+    /*adjusting the logo and logo text*/
+    .music-player-icon{
+        width: 4rem;
+    }
+    .ninja-studio{
+        font-size: 1.4rem;
+    }
+    #search-bar-div{
+        margin-left: 1rem;
+    }
+    .search-bar-input{
+        width: 10rem;
+    }
+    #nav-links-div{
+        margin-left: 0.5rem;
+    }
+    #nav-links-div a{
+        padding: 0.3rem;
+        font-size: 0.8rem;
+    }
+    .user-img{
+        margin-left: 1.2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    /*HOME SCREEN CAROUSEL*/
+    .home-screens{
+        width: 12.5rem;
+        height: 12rem;
+    }
+    /*NEW RELEASES SECTION*/
+    .latest-releases-song-div{
+        width: 20rem;
+    }
+    .latest-song-cover{
+        width: 4rem;
+        height: 4rem;
+    }
+    .latest-song-name-info{
+        width: 5rem;
+        font-size: 0.95rem;
+    }
+    .latest-song-name-info>span{
+        font-size: 0.8rem;
+    }
+    .year-of-song{
+        display: none;
+    }
+    .artist-image{
+        width: 5.4rem;
+        height: 5.4rem;
+    }
+    /*POPULAR ARTIST SECTION*/
+    .popular-artist-cover-div>span{
+        font-size: 1rem;
+    }
+    .play-now{
+        position: absolute;
+        top: 2.2rem;
+        left: 2.4rem;
+    }
+    /*MOOD-RADIO-SECTION*/
+    #mood-radio-div{
+        height: 12.5rem; 
+    }
+    #mood-radio-div{
+        left: 1.5rem;
+    }
+    #mood-radio-label-div{
+        padding: 0.4rem;
+        left: 2rem;
+        top: 1.4rem;
+    }
+    .lower-div{
+        width: 10rem;
+        height: 2.8rem;
+    }
+    .middle-div{
+        width: 9rem;
+        height: 4.8rem;
+    }
+    .upper-div{
+        width: 8rem;
+        height: 6.8rem;
+    }
+    .mood-radio-label-name{
+        width: 8.8rem;
+        height: 5.8rem;
+    }
+    .mood-radio-label-name>span{
+        font-size: 0.9rem;
+    }
+
+    .genre-circle-div{
+        width: 3rem;
+        height: 3rem;
+    }
+    .genre-text{
+        font-size: 0.7rem;
+        position: absolute;
+        left: 2.2rem;
+        top: 1.2rem;
+    }
+    .special{
+        left: 1.7rem;
+    }
+
+    #square-genre-container{
+        width: 7rem;
+        height: 5rem;
+    }
+    .sqgenre-text{
+        font-size: 1rem;
+        position: absolute;
+        top: 2.3rem;
+        left: 2.3rem;
+    }
+    .special2{
+        left: 1.4rem;
+    }
+    /*FOOTER*/
+    /*song main slider in footer*/
+    .main-slider{
+        width: 80%;
+    }
+    .enlarge-cover{
+        display: none;
+    }
+    .footer-song-info{
+        width: 28%;
+    }
+}
+
+@media screen and (max-width: 1150px){
+    /*hiding the section 2 of the main content div i.e the song queue and it will be visible on clicking the more button*/
+    label[for="more"]{
+        display: inline-block;
+        cursor: pointer !important;
+    }
+    #main-song-queue-div{
+        display: none;
+    }
+    
+    /*click the more button to view section-2 i.e song queue*/
+    #more:checked ~#main-song-queue-div{
+        display: inline-block;
+        z-index: 8;
+        width: 33%;
+        height: 68vh;
+        overflow-y: scroll;
+        position: absolute;
+        top: 9%;
+        right: 0%;
+        background-color: rgb(19, 17, 17);
+        opacity: 1;
+    }
+    #song-list-div{
+        height: 85%;
+    }
+
+    /*adjusting the logo and logo text*/
+    .music-player-icon{
+        width: 4rem;
+    }
+    .ninja-studio{
+        font-size: 1.3rem;
+    }
+    
+    /*navigation section*/
+    #search-bar-div{
+        margin-left: 1rem;
+    }
+    .search-bar-input{
+        width: 8rem;
+    }
+    #nav-links-div{
+        margin-left: 0.5rem;
+    }
+    #nav-links-div a{
+        padding: 0.3rem;
+        font-size: 0.8rem;
+    }
+    .user-img{
+        margin-left: 1.2rem;
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+    .main-slider{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 1065px){
+    /*NEW RELEASES SECTION*/
+    .latest-releases-song-div{
+        width: 19rem;
+    }
+    .latest-song-cover{
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    .latest-song-name-info{
+        width: 4rem;
+        font-size: 0.8rem;
+    }
+    .latest-song-name-info>span{
+        font-size: 0.75rem;
+    }
+    .vol-icon{
+        display: none;
+    }
+    .vol-bar{
+        display: none;
+    }
+    /*navigation section*/
+    /*adjusting the logo and logo text*/
+    .music-player-icon{
+        width: 3.6rem;
+    }
+    .ninja-studio{
+        font-size: 1.1rem;
+    }
+    #search-bar-div{
+        margin-left: 1.2rem;
+    }
+    .search-bar-input{
+        width: 7rem;
+    }
+    #nav-links-div{
+        margin-left: 0.5rem;
+    }
+    #nav-links-div a{
+        padding: 0.3rem;
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: 1010px){
+    #main-song-queue-div{
+        width: 38% !important;
+    }
+    /*HOME SCREEN CAROUSEL*/
+    .home-screens{
+        width: 11rem;
+        height: 10.5rem;
+    }
+    /*NEW RELEASES SECTION*/
+    .latest-releases-song-div{
+        width: 16rem;
+    }
+    .latest-song-cover{
+        width: 3rem;
+        height: 3rem;
+    }
+    .latest-song-name-info{
+        width: 3rem;
+        font-size: 0.75rem;
+    }
+    /*NAV*/
+    .music-player-icon{
+        width: 3.2rem;
+    }
+    .ninja-studio{
+        font-size: 1rem;
+    }
+    #search-bar-div{
+        margin-left: 0.8rem;
+    }
+    .search-bar-input{
+        width: 3rem;
+    }
+    .notif-icon{
+        padding-left: 1rem;
+    }
+}
+@media screen and (max-width: 900px){
+    /*nav hyperlinks hidden*/
+    #nav-links-div{
+        display: none;
+    }
+    .music-player-icon{
+        width: 3.5rem;
+    }
+    .ninja-studio{
+        font-size: 1.2rem;
+    }
+    #search-bar-div{
+        margin-left: 1.2rem;
+    }
+    .search-bar-input{
+        width: 15rem;
+    }
+    .notif-icon{
+        padding-left: 1rem;
+    }
+    /*HOME SCREEN CAROUSEL*/
+    .home-screens{
+        width: 9.5rem;
+        height: 9rem;
+    }
+    /*NEW RELEASES SECTION*/
+    .latest-releases-song-div{
+        width: 14rem;
+    }
+    .latest-song-cover{
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+    .latest-song-name-info{
+        width: 0rem;
+        font-size: 0.7rem;
+    }
+
+    .artist-image{
+        width: 4rem;
+        height: 4rem;
+    }
+    .main-slider{
+        width: 70%;
+    }
+    .genre-circle-div{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .genre-text{
+        font-size: 0.7rem;
+    }
+    #square-genre-container{
+        width: 5rem;
+        height: 4rem;
+    }
+    .sqgenre-text{
+        font-size: 0.7rem;
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+    }
+    .special2{
+        left: 1.4rem;
+    }
+}
