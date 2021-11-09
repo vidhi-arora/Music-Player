@@ -190,7 +190,7 @@ a{
     height: 100%;   /*17rem*/
     position: relative;
     display: inline-block;
-    background-image: linear-gradient(to top, rgb(0,0,0,0.9), rgb(0,0,0,0.1) 40%), url('https://pbs.twimg.com/profile_images/1289608528286625793/5dGEW4Js_400x400.jpg') !important;
+    background-image: linear-gradient(to top, rgb(0,0,0,0.9), rgb(0,0,0,0.1) 40%), url('sasha-sloan.jpg') !important;
     background-position: center;
     background-size: cover;
 }
